@@ -1,0 +1,23 @@
+:root {
+  --background: white;
+  --backgroundTrans: rgba(255, 255, 255, 0.2);
+  --text: black;
+  --primary: purple;
+  --col1: pink;
+  --gradient1: linear-gradient(40deg, pink 0%, hotpink 100%);
+  --col2: orange;
+  --gradient2: linear-gradient(40deg, beige 0%, orange 100%);
+  --col3: mediumaquamarine;
+  --gradient3: linear-gradient(40deg, mediumaquamarine 0%, lime 100%);
+  --col4: rebeccapurple;
+  --gradient4: linear-gradient(40deg, rebeccapurple 0%, lightblue 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: black;
+    --backgroundTrans: rgba(0, 0, 0, 0.2);
+    --text: white;
+    --primary: orange;
+  }
+}
