@@ -14,11 +14,18 @@ async function GET() {
   return data;
 }
 
-async function POST(obj) {
+async function POST(message) {
+  if (!message) {
+    throw "ERROR: The 'message' parameter in the function is required and missing.";
+  }
+
+  if (!(message.author && message.content && message.mood)) {
+    throw "ERROR: The 'message' parameter must include 'author', 'content' and 'mood' keys.";
+  }
   const OPTIONS = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(obj),
+    body: JSON.stringify(message),
   };
 
   const response = await fetch(URL, OPTIONS);
