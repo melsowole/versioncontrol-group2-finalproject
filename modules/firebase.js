@@ -13,4 +13,6 @@ function GET() {
 function POST(message) {
 	// Adds message to database
 	// returns id of added obj, or false
+	// throws Error if message is not provided
+	// throws Error if all keys are not provided
 }
