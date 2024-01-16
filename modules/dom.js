@@ -1,40 +1,42 @@
 export const dom = {
-	create,
-	createAndAppend,
+  create,
+  createAndAppend,
 };
 
 function create(tagName, classes, textContent) {
-	if (!tagName) {
-		throw "ERROR: The 'tagName' parameter in dom.create() is missing";
-	}
+  if (!tagName) {
+    throw "ERROR: The 'tagName' parameter in dom.create() is missing";
+  }
 
-	const element = document.createElement(tagName);
+  const element = document.createElement(tagName);
 
-	if (classes) {
-		if (typeof classes === "string") {
-			classes = [classes];
-		}
+  if (classes) {
+    if (typeof classes === "string") {
+      classes = [classes];
+    }
 
-		classes.forEach((cls) => element.classList.add(cls));
-	}
+    classes.forEach((cls) => element.classList.add(cls));
+  }
 
-	if (textContent) {
-		element.textContent = textContent;
-	}
+  if (textContent) {
+    element.textContent = textContent;
+  }
 
-	return element;
+  return element;
 }
 
 function createAndAppend(parent, tagName, classes, textContent) {
-	if (!(parent instanceof HTMLElement)) {
-		throw "ERROR: The 'parent' argument in dom.createAndAppend() must be a valid DOM element.";
-	}
+  if (!(parent instanceof HTMLElement)) {
+    throw "ERROR: The 'parent' argument in dom.createAndAppend() must be a valid DOM element.";
+  }
 
-	if (!tagName) {
-		throw "ERROR: The 'tagName' argument in dom.createAndAppend() must be a valid HTML tag name.";
-	}
+  if (!tagName) {
+    throw "ERROR: The 'tagName' argument in dom.createAndAppend() must be a valid HTML tag name.";
+  }
 
-	const element = create(tagName, classes, textContent);
+  const element = create(tagName, classes, textContent);
 
-	parent.append(element);
+  parent.append(element);
+
+  return element;
 }
