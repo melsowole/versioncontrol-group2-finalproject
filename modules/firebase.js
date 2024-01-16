@@ -1,66 +1,67 @@
 export const firebase = {
-	messages: { GET, POST },
+  GET,
+  POST,
 };
 
 const URL =
-	"https://fe23-messageboard-default-rtdb.europe-west1.firebasedatabase.app/.json";
+  "https://fe23-messageboard-default-rtdb.europe-west1.firebasedatabase.app/.json";
 
 async function GET() {
-	const response = await fetch(URL);
+  const response = await fetch(URL);
 
-	const data = await response.json();
+  const data = await response.json();
 
-	return data;
+  return data;
 }
 
 async function POST(obj) {
-	const OPTIONS = {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(obj),
-	};
+  const OPTIONS = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(obj),
+  };
 
-	const response = await fetch(URL, OPTIONS);
+  const response = await fetch(URL, OPTIONS);
 
-	if (response.ok) {
-		const data = await response.json();
+  if (response.ok) {
+    const data = await response.json();
 
-		return data.name;
-	}
+    return data.name;
+  }
 
-	return false;
+  return false;
 }
 
 async function DELETE(id) {
-	const data = await GET();
+  const data = await GET();
 
-	if (data[id]) {
-		delete data[id];
+  if (data[id]) {
+    delete data[id];
 
-		await PUT(data);
+    await PUT(data);
 
-		GET();
+    GET();
 
-		return data;
-	} else {
-		return false;
-	}
+    return data;
+  } else {
+    return false;
+  }
 }
 
 async function PUT(newObj) {
-	const OPTIONS = {
-		method: "PUT",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(newObj),
-	};
+  const OPTIONS = {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newObj),
+  };
 
-	const response = await fetch(URL, OPTIONS);
+  const response = await fetch(URL, OPTIONS);
 
-	const data = await response.json();
+  const data = await response.json();
 
-	if (response.ok) {
-		return true;
-	}
+  if (response.ok) {
+    return true;
+  }
 
-	return false;
+  return false;
 }
