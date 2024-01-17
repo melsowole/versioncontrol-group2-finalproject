@@ -1,0 +1,21 @@
+.page-content{
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+
+.fade-out{
+    opacity: 0;
+}
+
+.landing-wrapper{
+    height: 100%;
+}
+
+.logo{
+
+}
+
+.slogan{
+
+}
+

@@ -24,4 +24,7 @@
 body {
   background-color: var(--background);
   color: var(--text);
+  padding-top: 0;
+  height: 100svh;
+  /* max-height: 100svh; */
 }
