@@ -19,7 +19,7 @@ export const displayLanding = new Promise((resolve, reject) => {
     pageContainer.classList.add("fade-out");
 
     setTimeout(() => {
-      landing?.remove();
+      landing.remove();
 
       document.querySelector("h1").classList.add("hide-on-mobile");
       pageContainer.classList.remove("fade-out");
