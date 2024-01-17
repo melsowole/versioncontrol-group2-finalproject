@@ -1,3 +1,4 @@
+// contact
 import { dom } from "./dom.js";
 
 const contactH1El = dom.createAndAppend(document.body, "h1", "contactH1", "Contact");
@@ -13,4 +14,5 @@ const divPEl = dom.createAndAppend(contactDivEl, "div");
 
 const contactMail = dom.createAndAppend(divPEl, 'p', "", 'WYD@gritacademy.se');
 const contactPhone = dom.createAndAppend(divPEl, 'p', "", 'Mobile: 070-1234567');
+
 
