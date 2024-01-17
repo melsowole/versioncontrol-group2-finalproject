@@ -4,13 +4,13 @@
   --text: black;
   --primary: purple;
   --col1: pink;
-  --gradient1: linear-gradient(40deg, pink 0%, hotpink 100%);
+  --gradient1: linear-gradient(40deg, #f1a5fd 2%, #F0009E 100%);
   --col2: orange;
-  --gradient2: linear-gradient(40deg, beige 0%, orange 100%);
+  --gradient2: linear-gradient(40deg, #ffde4b 20%, #ff2903 100%);
   --col3: mediumaquamarine;
-  --gradient3: linear-gradient(40deg, mediumaquamarine 0%, lime 100%);
+  --gradient3: linear-gradient(40deg, #8ff2ff 0%, #02ff13 100%);
   --col4: rebeccapurple;
-  --gradient4: linear-gradient(40deg, rebeccapurple 0%, lightblue 100%);
+  --gradient4: linear-gradient(40deg, #70c6f7 0%, #7800F0 100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,7 +24,7 @@
 body {
   background-color: var(--background);
   color: var(--text);
-  padding-top: 0;
+  margin: 0;
   height: 100svh;
-  /* max-height: 100svh; */
+  width: 100vw;
 }
