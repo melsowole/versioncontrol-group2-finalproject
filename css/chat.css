@@ -1,3 +1,15 @@
 .PostPageSection {
   width: 200px;
 }
+
+.chatHeading {
+  display: flex;
+  justify-content: space-between;
+  font-size: large;
+  width: auto;
+  background-color: aqua;
+}
+
+.newPost {
+  padding: 1rem;
+}
