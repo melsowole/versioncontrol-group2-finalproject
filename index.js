@@ -7,4 +7,22 @@ displayLanding.then(() => {
   document.querySelector(".page-content").append(contactPage());
 });
 
+// Eventlistener for navbar
 
+const chatBtn = document.querySelector("#chatBtn");
+const aboutBtn = document.querySelector("#aboutBtn");
+const contactBtn = document.querySelector("#contactBtn");
+
+contactBtn.addEventListener("click", (event)=>{
+  event.preventDefault();
+  document.querySelector(".page-content").innerHTML = "";
+  document.querySelector(".page-content").append(contactPage());
+})
+
+aboutBtn.addEventListener("click", (event)=>{
+  event.preventDefault();
+})
+
+chatBtn.addEventListener("click", (event)=>{
+  event.preventDefault();
+})
