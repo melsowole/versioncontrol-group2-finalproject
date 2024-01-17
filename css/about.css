@@ -1,0 +1,16 @@
+.aboutH1 {
+    color: var(--text);
+}
+
+.aboutSection {
+    width: 100vw;
+    height: 100svh;
+}
+
+.aboutH2 {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
