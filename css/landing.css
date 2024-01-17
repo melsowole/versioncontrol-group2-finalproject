@@ -8,14 +8,21 @@
 }
 
 .landing-wrapper{
-    height: 100%;
-}
-
-.logo{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .slogan{
-
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    padding-top: 20vh;
 }
 
+
+.slogan *:last-child{
+    text-align: right;
+}

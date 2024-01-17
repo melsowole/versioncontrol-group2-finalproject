@@ -3,31 +3,25 @@ import { dom } from "./dom.js";
 const pageContainer = document.querySelector(".page-content");
 
 export const displayLanding = new Promise((resolve, reject) => {
-  let landing;
-  let fadeTime = 0;
-  let displayTime = 0;
-
-  if (!sessionStorage.getItem("refresh")) {
-    sessionStorage.setItem("refresh", true);
-
-    landing = landingPage();
-
-    fadeTime = 1000;
-    displayTime = 2000;
-
-    pageContainer.append(landing);
-
-    console.log("appended landing");
+  if (sessionStorage.getItem("refresh")) {
+    return resolve();
   }
+
+  sessionStorage.setItem("refresh", true);
+
+  const landing = landingPage();
+  pageContainer.append(landing);
+
+  const fadeTime = 1000;
+  const displayTime = 2000;
 
   setTimeout(() => {
     pageContainer.classList.add("fade-out");
 
     setTimeout(() => {
-      if (landing) {
-        // landing.remove();
-      }
+      landing?.remove();
 
+      document.querySelector("h1").classList.add("hide-on-mobile");
       pageContainer.classList.remove("fade-out");
 
       resolve();
@@ -37,8 +31,6 @@ export const displayLanding = new Promise((resolve, reject) => {
 
 function landingPage() {
   const landingWrapper = dom.create("section", "landing-wrapper");
-
-  dom.createAndAppend(landingWrapper, "h1", "logo", "WYD");
 
   const sloganWrapper = dom.createAndAppend(landingWrapper, "p", "slogan");
 

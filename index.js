@@ -6,11 +6,7 @@ import { displayLanding } from "./modules/landing.js";
 sessionStorage.clear();
 
 displayLanding.then(() => {
-  // main page content
-  //   dom.createAndAppend(
-  //     document.querySelector(".page-content"),
-  //     "h2",
-  //     "page",
-  //     "This is the main page"
-  //   );
+  document.querySelector(".page-content").append(contactPage());
 });
+
+
