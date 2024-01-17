@@ -1,3 +1,7 @@
+.blob, .blobOverlay{
+  z-index: -1;
+}
+
 .blob {
    position: absolute; 
    border-radius: 50%;
