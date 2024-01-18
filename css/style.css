@@ -2,22 +2,18 @@
   --background: white;
   --backgroundTrans: rgba(255, 255, 255, 0.2);
   --text: black;
-  --primary: purple;
-  --col1: pink;
+  --primary: #cd9aff;
   --gradient1: linear-gradient(40deg, #f1a5fd 2%, #F0009E 100%);
-  --col2: orange;
   --gradient2: linear-gradient(40deg, #ffde4b 20%, #ff2903 100%);
-  --col3: mediumaquamarine;
   --gradient3: linear-gradient(40deg, #8ff2ff 0%, #02ff13 100%);
-  --col4: rebeccapurple;
   --gradient4: linear-gradient(40deg, #70c6f7 0%, #7800F0 100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: black;
+    --background: #121212;
     --text: white;
-    --primary: orange;
+    --primary: #ff4d0086;
   }
 }
 
