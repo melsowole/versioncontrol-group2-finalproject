@@ -8,7 +8,7 @@ import { firebase } from "./firebase.js";
 // document.body.append(createPostHeader());
 // document.body.append(createNewPost());
 
-function createPostHeader() {
+export function createPostHeader() {
   const chatHeader = dom.create("header", "chatHeading", "Chat");
   const newPostButton = dom.createAndAppend(
     chatHeader,
@@ -20,7 +20,7 @@ function createPostHeader() {
   return chatHeader;
 }
 
-function createNewPost() {
+export function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
   const titleDiv = dom.createAndAppend(newPostDiv, "input", "newPostTitle");
 
