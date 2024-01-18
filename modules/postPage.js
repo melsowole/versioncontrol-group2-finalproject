@@ -1,5 +1,6 @@
 import { dom } from "./dom.js";
 import { firebase } from "./firebase.js";
+import { icons } from "./icons.js";
 
 // function renderPostPage() {
 //   dom.create("section", ".PostPageSection");
@@ -23,6 +24,7 @@ export function createPostHeader() {
 export function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
   const titleDiv = dom.createAndAppend(newPostDiv, "input", "newPostTitle");
+  titleDiv.placeholder = "Write your title here...";
 
   const text = dom.createAndAppend(
     newPostDiv,
@@ -30,13 +32,38 @@ export function createNewPost() {
     "moodText",
     "Choose your mood:"
   );
-  const chooseMoodDiv = dom.createAndAppend(
+  const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
+
+  const moodButtons = [
+    icons("sad"),
+    icons("turbulent"),
+    icons("happy"),
+    icons("mad"),
+  ];
+
+  chooseMoodDiv.innerHTML = moodButtons
+    .map((mood) => `<div><input type="radio" name="mood" value="${mood}</div>`)
+    .join("");
+  //   <label for="${mood}">${mood}</label> id="${mood}
+
+  //   const sadMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
+  //   sadMoodIcon.setAttribute("type", "radio");
+
+  //   const turbulentMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
+  //   turbulentMoodIcon.setAttribute("type", "radio");
+
+  //   const happyMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
+  //   happyMoodIcon.setAttribute("type", "radio");
+
+  //   const madMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
+  //   madMoodIcon.setAttribute("type", "radio");
+
+  const writePostText = dom.createAndAppend(
     newPostDiv,
-    "div",
-    "chooseMood",
-    " different moods"
+    "textarea",
+    "newPostText"
   );
-  const writePostText = dom.createAndAppend(newPostDiv, "input", "newPostText");
+  writePostText.placeholder = "Whatcha doing?...";
   const PostBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
 
   return newPostDiv;
