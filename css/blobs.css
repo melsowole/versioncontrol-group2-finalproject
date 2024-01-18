@@ -1,0 +1,52 @@
+
+.blob, .blobOverlay{
+  z-index: -1;
+}
+
+
+.blob {
+   position: absolute; 
+   border-radius: 50%;
+}
+
+.blob1 {
+  top: 320px;
+  left: 50px;
+  width: 100px; 
+  height: 100px; 
+  background: var(--gradient1);
+}
+
+.blob2 {
+  top: 100px;
+  right: 20px;
+  width: 180px; 
+  height: 180px; 
+  background: var(--gradient2);
+}
+
+.blob3 {
+  top: 650px;
+  right: 30px;
+  width: 80px; 
+  height: 80px; 
+  background: var(--gradient3);
+}
+
+.blob4 {
+  top: 400px;
+  left: 120px;
+  width: 150px; 
+  height: 150px; 
+  background: var(--gradient4);
+}
+
+.blobOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
