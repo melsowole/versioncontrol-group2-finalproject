@@ -5,6 +5,7 @@ import { aboutPage } from "./modules/about.js";
 import { displayLanding } from "./modules/landing.js";
 import { createPostHeader } from "./modules/postPage.js";
 import { createNewPost } from "./modules/postPage.js";
+import { openContactPage, openAboutPage, openChatPage } from "./modules/navigation.js";
 
 displayLanding.then(() => {
   document
@@ -13,21 +14,12 @@ displayLanding.then(() => {
 });
 
 // Eventlistener for navbar
-
 const chatBtn = document.querySelector("#chatBtn");
 const aboutBtn = document.querySelector("#aboutBtn");
 const contactBtn = document.querySelector("#contactBtn");
 
-contactBtn.addEventListener("click", (event)=>{
-  event.preventDefault();
-  document.querySelector(".page-content").innerHTML = "";
-  document.querySelector(".page-content").append(contactPage());
-})
+contactBtn.addEventListener("click", openContactPage);
 
-aboutBtn.addEventListener("click", (event)=>{
-  event.preventDefault();
-})
+aboutBtn.addEventListener("click", openAboutPage);
 
-chatBtn.addEventListener("click", (event)=>{
-  event.preventDefault();
-})
+chatBtn.addEventListener("click", openChatPage);
