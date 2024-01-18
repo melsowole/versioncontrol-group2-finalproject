@@ -6,7 +6,6 @@ import { displayLanding } from "./modules/landing.js";
 
 displayLanding.then(() => {
   document.querySelector(".page-content").append(contactPage());
-  document.querySelector(".page-content").append(aboutPage());
 });
 
 
