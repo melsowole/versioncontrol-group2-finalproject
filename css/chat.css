@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 .PostPageSection {
   width: 200px;
 }
@@ -5,11 +9,65 @@
 .chatHeading {
   display: flex;
   justify-content: space-between;
-  font-size: large;
+  font-size: 3rem;
   width: auto;
-  background-color: aqua;
+  margin: 1rem;
 }
 
-.newPost {
-  padding: 1rem;
+.newPostBtn {
+  padding: 0.5rem;
+}
+
+.newPostDiv {
+  background-color: aquamarine;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding-bottom: 2rem;
+}
+
+.newPostTitle {
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  height: 2rem;
+  width: 80%;
+}
+
+.moodText {
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 80%;
+}
+
+.chooseMood {
+  background-color: bisque;
+  height: 50px;
+  width: 80%;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.newPostText {
+  display: block;
+  height: 100px;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  width: 80%;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.PostBtn {
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 0.5rem;
 }
