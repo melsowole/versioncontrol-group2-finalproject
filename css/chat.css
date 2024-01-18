@@ -25,6 +25,13 @@
   /* border-radius: 20px; */
 }
 
+#closeNewPostPopUp {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
 /* .newPostDiv svg:hover {
   background-color: var(--primary);
 } */

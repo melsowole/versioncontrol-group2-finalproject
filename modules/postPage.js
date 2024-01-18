@@ -23,6 +23,12 @@ export function createPostHeader() {
 
 export function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
+  let closeButton = document.querySelector("#closeNewPostPopUp");
+  //   closeButton.dom.create("button");
+  newPostDiv.append(closeButton);
+
+  //   closeButton = dom.createAndAppend(newPostDiv, "button");
+
   const titleDiv = dom.createAndAppend(newPostDiv, "input", "newPostTitle");
   titleDiv.placeholder = "Write your title here...";
 
