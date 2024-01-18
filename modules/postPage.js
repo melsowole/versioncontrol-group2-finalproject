@@ -5,8 +5,8 @@ import { firebase } from "./firebase.js";
 //   dom.create("section", ".PostPageSection");
 // }
 
-document.body.append(createPostHeader());
-document.body.append(createNewPost());
+// document.body.append(createPostHeader());
+// document.body.append(createNewPost());
 
 function createPostHeader() {
   const chatHeader = dom.create("header", "chatHeading", "Chat");
