@@ -3,7 +3,7 @@
     transition-duration: 1s;
 }
 
-.fade-out{
+.fade-out, .no-click{
     opacity: 0;
 }
 
@@ -26,4 +26,9 @@
 
 .slogan *:last-child{
     text-align: right;
+}
+
+#bottomNav{
+    transition-property: opacity;
+    transition-duration: 1s;
 }
