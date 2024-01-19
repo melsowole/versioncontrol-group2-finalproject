@@ -6,6 +6,7 @@ import { displayLanding } from "./modules/landing.js";
 import { createPostHeader } from "./modules/postPage.js";
 import { createNewPost } from "./modules/postPage.js";
 import { openContactPage, openAboutPage, openChatPage } from "./modules/navigation.js";
+import { blobsPage } from "./modules/blobs.js";
 
 displayLanding.then(() => {
   document.querySelector("header").classList.add("hide-on-mobile");
