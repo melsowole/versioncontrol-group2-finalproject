@@ -12,6 +12,9 @@
 
   --border: 1px solid black;
   --borderPrimary: 1px solid var(var(--primary));
+
+  --fontKadwa: 'Kadwa';
+  --fontFreehand: 'Freehand';
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +23,20 @@
     --text: white;
     --primary: #ff4d0086;
   }
+}
+
+@font-face {
+  font-family: 'Kadwa';
+  src: url(../font/Kadwa.ttf);
+}
+
+@font-face {
+  font-family: 'Freehand';
+  src: url(../font/Freehand.ttf);
+}
+
+* {
+  font-family: var(--fontKadwa);
 }
 
 body {
