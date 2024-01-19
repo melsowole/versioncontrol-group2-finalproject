@@ -8,6 +8,7 @@ import { createNewPost } from "./modules/postPage.js";
 import { openContactPage, openAboutPage, openChatPage } from "./modules/navigation.js";
 
 displayLanding.then(() => {
+  document.querySelector("header").classList.add("hide-on-mobile");
   document
     .querySelector(".page-content")
     .append(createPostHeader(), createNewPost());
