@@ -7,6 +7,11 @@
   --gradient2: linear-gradient(40deg, #ffde4b 20%, #ff2903 100%);
   --gradient3: linear-gradient(40deg, #8ff2ff 0%, #02ff13 100%);
   --gradient4: linear-gradient(40deg, #70c6f7 0%, #7800F0 100%);
+
+  --gradientNeutral: gainsboro;
+
+  --border: 1px solid black;
+  --borderPrimary: 1px solid var(var(--primary));
 }
 
 @media (prefers-color-scheme: dark) {
