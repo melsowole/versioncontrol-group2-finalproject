@@ -15,7 +15,7 @@
   -webkit-backdrop-filter: blur(30px);
   border: 2px solid var(--primary);
   border-radius: 5px;
-  padding-bottom: 2rem;
+  padding-bottom: 0.5rem;
   margin: 1rem;
 }
 
@@ -39,18 +39,18 @@
 .newPostTitle {
   display: block;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 0,5rem;
   padding: 0.5rem;
   border-radius: 5px;
   border: 2px solid var(--primary);
-  height: 2rem;
-  width: 80%;
+  height: 3rem;
+  width: 90%;
 }
 
 .moodText {
   display: block;
-  margin: auto;
-  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-top: 0,5rem;
   padding: 0.5rem;
   width: 80%;
 }
@@ -60,9 +60,9 @@
   justify-content: space-around;
   align-items: center;
   height: 50px;
-  width: 80%;
+  width: 90%;
   margin: auto;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 5px;
   border: 2px solid var(--primary);
   background-color: white;
@@ -70,11 +70,11 @@
 
 .newPostText {
   display: block;
-  height: 100px;
+  height: 9rem;
   margin: auto;
   margin-top: 2rem;
   padding: 0.5rem;
-  width: 80%;
+  width: 90%;
   border-radius: 5px;
   border: 2px solid var(--primary);
 }
@@ -82,10 +82,25 @@
 .PostBtn {
   display: block;
   margin: auto;
-  margin-top: 2rem;
-  width: 5rem;
+  margin-top: 0.5rem;
+  width: 9rem;
   padding: 0.3rem;
   border: 2px solid var(--primary);
   border-radius: 20px;
   background-color: white;
+}
+
+@media (min-width: 800px){
+  .newPostDiv{
+    width: 20%;
+    margin-top: 6rem;
+    margin-left: auto;
+    margin-right: 9rem;
+  }
+  .chatHeading{
+    margin-left: 7rem;
+    position: absolute;
+    top: 20%;
+  }
+
 }
