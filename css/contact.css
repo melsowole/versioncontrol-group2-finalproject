@@ -4,8 +4,7 @@
     box-sizing: border-box;
 }
 .contactH1{
-    width: 90%;
-    margin: auto;
+    text-align: left;
     color: var(--text);
 }
 .contactDiv{
@@ -38,3 +37,19 @@
     font-size: 20px;
     color: var(--text);
 }
+
+@media (min-width: 600px){
+    .contactDiv{
+    width: 60%;
+    margin-right: 100px;
+    align-items: right;
+    grid-template-columns: auto 1fr;
+}
+.contactH1{
+    margin-top: 20vw;
+    margin-left: 10px;
+}
+
+}
+
+
