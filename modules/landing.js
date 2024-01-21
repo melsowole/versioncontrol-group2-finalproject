@@ -12,6 +12,8 @@ export const displayLanding = new Promise((resolve, reject) => {
   const landing = landingPage();
   pageContainer.append(landing);
 
+  document.querySelector("nav").classList.add("no-click");
+
   const fadeTime = 1000;
   const displayTime = 2000;
 
@@ -22,6 +24,8 @@ export const displayLanding = new Promise((resolve, reject) => {
       landing.remove();
 
       document.querySelector("h1").classList.add("hide-on-mobile");
+      document.querySelector("nav").classList.remove("no-click");
+
       pageContainer.classList.remove("fade-out");
 
       resolve();

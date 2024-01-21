@@ -7,21 +7,24 @@ import { createPostHeader } from "./modules/postPage.js";
 import { createNewPost } from "./modules/postPage.js";
 import { openContactPage, openAboutPage, openChatPage } from "./modules/navigation.js";
 import { blobsPage } from "./modules/blobs.js";
+sessionStorage.clear();
+
+const nav = [
+  { id: "chatBtn", openPage: openChatPage },
+  { id: "aboutBtn", openPage: openAboutPage },
+  { id: "contactBtn", openPage: openContactPage },
+];
 
 displayLanding.then(() => {
   document.querySelector("header").classList.add("hide-on-mobile");
   document
     .querySelector(".page-content")
     .append(createPostHeader(), createNewPost());
+
+  // Eventlistener for navbar
+  nav.forEach((item) => {
+    document.getElementById(item.id).addEventListener("click", item.openPage);
+  });
 });
 
-// Eventlistener for navbar
-const chatBtn = document.querySelector("#chatBtn");
-const aboutBtn = document.querySelector("#aboutBtn");
-const contactBtn = document.querySelector("#contactBtn");
 
-contactBtn.addEventListener("click", openContactPage);
-
-aboutBtn.addEventListener("click", openAboutPage);
-
-chatBtn.addEventListener("click", openChatPage);
