@@ -16,6 +16,8 @@ export function postPage() {
 
   newPostButton.addEventListener("click", () => {
     document.body.append(createNewPost());
+    
+    
   });
 
   page.append(renderFeed());
@@ -64,11 +66,13 @@ function createNewPost() {
 
   writePostText.placeholder = "Whatcha doing?...";
   const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
+  
 
   closeButton.addEventListener("click", () => {
     newPostDiv.remove();
   });
 
+  
   postBtn.addEventListener("click", () => {
     const message = {
       author: titleDiv.value,
@@ -76,10 +80,19 @@ function createNewPost() {
       mood: document.querySelector("input[type=radio]:checked").value,
     };
 
-    firebase.POST(message).then((r) => {
-      location.reload();
+    // Added a feature that triggers a audio when the user clicks on "Post."
+    // The 'submitSound' event listener waits for the audio to complete before reloading the page.
+    firebase.POST(message).then(() => {
+      const submitSound = new Audio('./audio/post-sound.mp3');
+      
+      submitSound.play();
+  
+      submitSound.addEventListener('ended', () => {
+        location.reload();
+      });
     });
   });
-
+  
   return newPostDiv;
-}
+}  
+
