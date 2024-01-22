@@ -7,7 +7,7 @@ import { createPostHeader } from "./modules/postPage.js";
 import { createNewPost } from "./modules/postPage.js";
 import { openContactPage, openAboutPage, openChatPage } from "./modules/navigation.js";
 import { blobsPage } from "./modules/blobs.js";
-sessionStorage.clear();
+// sessionStorage.clear();
 
 const nav = [
   { id: "chatBtn", openPage: openChatPage },
@@ -20,6 +20,8 @@ displayLanding.then(() => {
   document
     .querySelector(".page-content")
     .append(createPostHeader(), createNewPost());
+
+  document.querySelector("nav").classList.remove("no-click");
 
   // Eventlistener for navbar
   nav.forEach((item) => {
