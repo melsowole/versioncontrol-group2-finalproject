@@ -5,9 +5,11 @@ import { aboutPage } from "./modules/about.js";
 import { displayLanding } from "./modules/landing.js";
 import { createPostHeader } from "./modules/postPage.js";
 import { createNewPost } from "./modules/postPage.js";
+import { renderFeed } from "./modules/ChatPage.js";
 
 displayLanding.then(() => {
   document
     .querySelector(".page-content")
-    .append(createPostHeader(), createNewPost());
+    .append(createPostHeader(), renderFeed());
 });
+// createPostHeader(), createNewPost()
