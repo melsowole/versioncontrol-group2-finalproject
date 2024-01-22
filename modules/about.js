@@ -11,12 +11,12 @@ export function aboutPage() {
     "Catch blobs to find out"
   );
 
-  enableBlobsFunctionality();
+  blobsFunctionality();
 
   return aboutWrapper;
 }
 
-function enableBlobsFunctionality() {
+function blobsFunctionality() {
   //ändrar z-index till 0 när funktionen anropas, istället för -1 som är stilregeln i css:en
   const blobZIndex = document.querySelectorAll(".blob, .blobOverlay");
   blobZIndex.forEach((blobZIndex) => {
@@ -42,5 +42,3 @@ function enableBlobsFunctionality() {
     });
   });
 }
-
-function disableBlobsFunctionality() {}
