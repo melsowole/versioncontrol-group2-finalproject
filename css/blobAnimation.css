@@ -1,0 +1,47 @@
+.blob1 {
+    animation-name: blob1;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.blob2 {
+    animation-name: blob2;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.blob3 {
+    animation-name: blob3;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.blob4 {
+    animation-name: blob4;
+    animation-duration: 16s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes blob1 {
+    from {top: 450px;}
+    to {top: 100px;}
+}
+
+@keyframes blob2 {
+    from {top: 450px;}
+    to {top: 100px;}
+}
+
+@keyframes blob3 {
+    from {top: 100px;}
+    to {top: 450px;}
+}
+
+@keyframes blob4 {
+    from {top: 100px;}
+    to {top: 450px;}
+}
