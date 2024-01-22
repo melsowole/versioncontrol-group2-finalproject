@@ -68,6 +68,33 @@
   background-color: white;
 }
 
+.chooseMood input[type="radio"] {
+  display: none;
+}
+
+.chooseMood label {
+  cursor: pointer;
+  margin: 0;
+}
+
+.moodIcon {
+  position: relative;
+}
+.moodIcon.selected {
+  box-shadow: inset 0 0 0 25px lightgray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.moodIcon.selected::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .newPostText {
   display: block;
   height: 9rem;

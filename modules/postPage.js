@@ -40,16 +40,39 @@ export function createNewPost() {
   );
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
 
-  const moodButtons = [
-    icons("sad"),
-    icons("turbulent"),
-    icons("happy"),
-    icons("mad"),
-  ];
-
-  chooseMoodDiv.innerHTML = moodButtons
-    .map((mood) => `<div><input type="radio" name="mood" value="${mood}</div>`)
+  const moodIcons = ["sad", "turbulent", "happy", "mad"];
+  chooseMoodDiv.innerHTML = moodIcons
+    .map((mood) => {
+      const iconSvg = icons(mood);
+      return `<div class="moodIcon">
+                <input type="radio" name="mood" value="${mood}" id="${mood}Radio">
+                <label for="${mood}Radio">${iconSvg}</label>
+              </div>`;
+    })
     .join("");
+
+  const moodIconsElements = newPostDiv.querySelectorAll(".moodIcon");
+
+  moodIconsElements.forEach((iconElement) => {
+    iconElement.addEventListener("click", () => {
+      moodIconsElements.forEach((element) => {
+        element.classList.remove("selected");
+      });
+      iconElement.classList.add("selected");
+    });
+  });
+
+
+  // const moodButtons = [
+  //   icons("sad"),
+  //   icons("turbulent"),
+  //   icons("happy"),
+  //   icons("mad"),
+  // ];
+
+  // chooseMoodDiv.innerHTML = moodButtons
+  //   .map((mood) => `<div><input type="radio" name="mood" value="${mood}</div>`)
+  //   .join("");
   //   <label for="${mood}">${mood}</label> id="${mood}
 
   //   const sadMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
