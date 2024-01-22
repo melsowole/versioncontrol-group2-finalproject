@@ -13,9 +13,9 @@ This is the final project for the course Version Control at Grit Academy Malmö 
 
 ## Contributing
 
-Contributions to the project are greatly appreciated.
+Contributions to the project are greatly appreciated. If you have any suggestions, fork the repo, add your changes, create a pull request and wait for it to be reviewed!
 
-If you have any suggestions, fork the repo, add your changes, create a pull request and wait for it to be reviewed!
+More information on how to contribute and the guidelines can be found in the Wiki on the [contributing page](https://github.com/melsowole/versioncontrol-group2-finalproject/wiki/Contributing)
 
 
 

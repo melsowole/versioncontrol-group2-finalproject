@@ -3,34 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/chat.css" />
-    <link rel="stylesheet" href="./css/posts.css" />
-    <link rel="stylesheet" href="./css/blobs.css" />
-    <link rel="stylesheet" href="./css/landing.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/contact.css" />
-    <link rel="stylesheet" href="./css/about.css" />
-    <script type="module" src="./index.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/blobs.css">
+    <link rel="stylesheet" href="./css/chat.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/landing.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/posts.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="index.js"></script>
     <title>WYD</title>
   </head>
   <body>
-    <div class="blob1 blob"></div>
-    <div class="blob2 blob"></div>
-    <div class="blob3 blob"></div>
-    <div class="blob4 blob"></div>
+    <div class="blob1 blob">
+      <div class="blobText">
+        <h2>Purpose</h2>
+        <p>Post your current thoughts and attach your mood, explore what other users are up to worldwyd</p>
+        <!-- <button class="closeBlob">x</button> -->
+      </div>
+    </div>
+    <div class="blob2 blob">
+      <div class="blobText">
+        <h2>Creators</h2>
+        <p>Melinda Sowole</p>
+        <p>Amanda Andersson</p>
+        <p>Anne-Lie Ståhle</p>
+        <p>Elvira Ericsson</p>
+        <!-- <button class="closeBlob">x</button> -->
+      </div>
+    </div>
+    <div class="blob3 blob">
+      <div class="blobText">
+        <h2>Written in</h2>
+        <p>JavaScript</p>
+        <!-- <button class="closeBlob">x</button> -->
+      </div>
+    </div>
+    <div class="blob4 blob">
+      <div class="blobText">
+        <h3>Inspiration</h3>
+        <p>The theme of this webapp is inspired by neon, lava lamps, and space </p>
+        <!-- <button class="closeBlob">x</button> -->
+      </div>
+    </div>
     <div class="blobOverlay"></div>
 
-    <nav id="bottomNav">
-      <button id="chatBtn"><i class="fa fa-home"></i></button>
-      <button id="AboutBtn"><i class="fa fa-user"></i></button>
-      <button id="ContactBtn"><i class="fa fa-phone"></i></button>
+    <nav id="bottomNav" class="no-click">
+      <button id="chatBtn"><i aria-label="home" class="fa-regular fa-comments"></i></button>
+      <button id="aboutBtn"><i aria-label="about"  class="fa-regular fa-user"></i></button>
+      <button id="contactBtn"><i aria-label="contact" class="fa-regular fa-envelope"></i></button>
+      <button id="randomFeaturesBtn"><i aria-label="random features" class="fa-regular fa-face-smile"></i></button>
     </nav>
 
     <div class="page-content">

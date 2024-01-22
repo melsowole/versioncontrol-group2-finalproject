@@ -3,7 +3,7 @@
     transition-duration: 1s;
 }
 
-.fade-out{
+.fade-out, .no-click{
     opacity: 0;
 }
 
@@ -20,9 +20,15 @@
     flex-direction: column;
     font-size: 2rem;
     padding-top: 20vh;
+    font-family: var(--fontFreehand);
 }
 
 
 .slogan *:last-child{
     text-align: right;
+}
+
+#bottomNav{
+    transition-property: opacity;
+    transition-duration: 1s;
 }
