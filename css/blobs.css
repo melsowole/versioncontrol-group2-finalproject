@@ -98,7 +98,7 @@
   height: 70vw;
   top: 25%;
   z-index: 1;
-  font-size: 5vw;
+  font-size: 4vw;
 }
 
 .blobClicked1, .blobClicked4 {
@@ -156,12 +156,12 @@
     width: 16vw; 
     height: 16vw; 
   }
-  .clickedBlob{
+  .about-page .clickedBlob{
     width: 23vw;
     height: 23vw;
     top: 25%;
     z-index: 1;
-    font-size: 2vw;
+    font-size: 1.2vw;
   }
   .blobText > p {
     width: 20vw;
