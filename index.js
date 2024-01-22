@@ -1,30 +1,24 @@
 import { dom } from "./modules/dom.js";
 import { firebase } from "./modules/firebase.js";
-import { contactPage } from "./modules/contact.js";
-import { aboutPage } from "./modules/about.js";
 import { displayLanding } from "./modules/landing.js";
-import { createPostHeader } from "./modules/postPage.js";
-import { createNewPost } from "./modules/postPage.js";
-import { openContactPage, openAboutPage, openChatPage } from "./modules/navigation.js";
-import { blobsPage } from "./modules/blobs.js";
+import * as nav from "./modules/navigation.js";
 // sessionStorage.clear();
 
-const nav = [
-  { id: "chatBtn", openPage: openChatPage },
-  { id: "aboutBtn", openPage: openAboutPage },
-  { id: "contactBtn", openPage: openContactPage },
+const navItems = [
+  { id: "chatBtn", openPage: nav.openChatPage },
+  { id: "aboutBtn", openPage: nav.openAboutPage },
+  { id: "contactBtn", openPage: nav.openContactPage },
+  { id: "randomFeaturesBtn", openPage: nav.openRandomFeaturesPage },
 ];
 
 displayLanding.then(() => {
   document.querySelector("header").classList.add("hide-on-mobile");
-  document
-    .querySelector(".page-content")
-    .append(createPostHeader(), createNewPost());
+  nav.openChatPage();
 
   document.querySelector("nav").classList.remove("no-click");
 
   // Eventlistener for navbar
-  nav.forEach((item) => {
+  navItems.forEach((item) => {
     document.getElementById(item.id).addEventListener("click", item.openPage);
   });
 });
