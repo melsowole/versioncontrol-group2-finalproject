@@ -28,7 +28,7 @@
   text-align: center;
 }
 
-.aboutPageBlob{
+.about-page .blob, .about-page .blobOverlay{
   z-index: 0;
 }
 
@@ -88,7 +88,7 @@
   pointer-events: none;
 }
 
-.clickedBlob{
+.about-page .clickedBlob{
   width: 85vw;
   height: 85vw;
   top: 25%;

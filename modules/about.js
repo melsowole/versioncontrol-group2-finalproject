@@ -17,17 +17,11 @@ export function aboutPage() {
 }
 
 function blobsFunctionality() {
-  //ändrar z-index till 0 när funktionen anropas, istället för -1 som är stilregeln i css:en
-  const blobZIndex = document.querySelectorAll(".blob, .blobOverlay");
-  blobZIndex.forEach((blobZIndex) => {
-    blobZIndex.classList.add("aboutPageBlob");
-  });
-
   const blobs = document.querySelectorAll(".blob");
 
   blobs.forEach((blob, index) => {
     blob.addEventListener("click", () => {
-      if (window.location.hash !== "#about") return;
+      if (!document.body.classList.contains("about-page")) return;
 
       const previouslyClicked = document.querySelector(".clickedBlob");
 
