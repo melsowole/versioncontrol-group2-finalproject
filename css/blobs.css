@@ -88,16 +88,12 @@
   pointer-events: none;
 }
 
-<<<<<<< Updated upstream
-.clickedBlob{
-=======
 .about-page .blobOverlay{
   top: 65px;
   height: calc(100svh - 65px);
 }
 
 .about-page .clickedBlob{
->>>>>>> Stashed changes
   width: 70vw;
   height: 70vw;
   top: 25%;
