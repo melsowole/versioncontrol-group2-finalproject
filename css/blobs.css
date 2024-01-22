@@ -89,13 +89,19 @@
 }
 
 .clickedBlob{
-  width: 85vw;
-  height: 85vw;
+  width: 70vw;
+  height: 70vw;
   top: 25%;
-  left: 10%;
-  right: 10%;
   z-index: 1;
   font-size: 5vw;
+}
+
+.blobClicked1, .blobClicked4 {
+  left: 10%;
+}
+
+.blobClicked2, .blobClicked3 {
+  right: 10%;
 }
 
 @keyframes slideInFromLeft {
@@ -108,5 +114,55 @@
     transform: translateX(0);
     opacity: 1;
 
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 800px){
+  .blob1 {
+    width: 9vw; 
+    height: 9vw;
+    top: 250px;
+    left: 250px;
+  }
+  .blob2 {
+    top: 100px;
+    right: 250px;
+    width: 18vw; 
+    height: 18vw;
+  }
+  .blob3 {
+    right: 150px;
+    width: 9vw; 
+    height: 9vw; 
+  }
+  .blob4 {
+    left: 550px;
+    width: 16vw; 
+    height: 16vw; 
+  }
+  .clickedBlob{
+    width: 23vw;
+    height: 23vw;
+    top: 25%;
+    z-index: 1;
+    font-size: 2vw;
+  }
+  .blobText > p {
+    width: 20vw;
+    line-height: 40px;
+  }
+  .blobText {
+    animation: slideInFromRight 1s ease forwards;
   }
 }
