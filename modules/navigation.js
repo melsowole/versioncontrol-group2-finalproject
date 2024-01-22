@@ -10,17 +10,25 @@ function openPage(content) {
 }
 
 export function openContactPage() {
+  window.location.hash = "contact";
+
   openPage(contactPage());
 }
 
 export function openAboutPage() {
+  window.location.hash = "about";
+
   openPage(aboutPage());
 }
 
 export function openChatPage() {
+  window.location.hash = "home";
+
   openPage(createPostHeader(), createNewPost());
 }
 
 export function openRandomFeaturesPage() {
+  window.location.hash = "random-features";
+
   openPage(randomFeaturesPage());
 }
