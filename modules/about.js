@@ -1,5 +1,4 @@
-import { dom } from './dom.js';
-import { blobsPage } from "./blobs.js";
+import { dom } from "./dom.js";
 
 export function aboutPage() {
   const aboutWrapper = dom.create("section", "aboutSection");
@@ -12,7 +11,28 @@ export function aboutPage() {
     "Catch blobs to find out"
   );
 
-  blobsPage();
+  blobsFunctionality();
 
   return aboutWrapper;
+}
+
+function blobsFunctionality() {
+  const blobs = document.querySelectorAll(".blob");
+
+  blobs.forEach((blob, index) => {
+    blob.addEventListener("click", () => {
+      if (!document.body.classList.contains("about-page")) return;
+
+      const previouslyClicked = document.querySelector(".clickedBlob");
+
+      if (previouslyClicked) {
+        previouslyClicked.classList.remove("clickedBlob");
+        previouslyClicked.querySelector(".blobText").style.display = "none";
+        return;
+      }
+
+      blob.classList.add("clickedBlob");
+      blob.querySelector(".blobText").style.display = "flex";
+    });
+  });
 }

@@ -28,7 +28,7 @@
   text-align: center;
 }
 
-.aboutPageBlob{
+.about-page .blob, .about-page .blobOverlay{
   z-index: 0;
 }
 
@@ -79,10 +79,10 @@
 
 .blobOverlay {
   position: absolute;
-  top: 65px;
+  top: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 100svh;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   pointer-events: none;

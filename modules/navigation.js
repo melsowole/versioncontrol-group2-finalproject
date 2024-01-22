@@ -10,17 +10,29 @@ function openPage(content) {
 }
 
 export function openContactPage() {
+  setBodyClass("contact-page");
+
   openPage(contactPage());
 }
 
 export function openAboutPage() {
+  setBodyClass("about-page");
+
   openPage(aboutPage());
 }
 
 export function openChatPage() {
+  setBodyClass("home-page");
+
   openPage(createPostHeader(), createNewPost());
 }
 
 export function openRandomFeaturesPage() {
+  setBodyClass("random-features-page");
+
   openPage(randomFeaturesPage());
+}
+
+function setBodyClass(pageName) {
+  document.body.classList = pageName;
 }
