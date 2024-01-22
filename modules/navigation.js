@@ -1,6 +1,6 @@
 import { contactPage } from "./contact.js";
 import { aboutPage } from "./about.js";
-import { createPostHeader, createNewPost } from "./postPage.js";
+import { postPage } from "./postPage.js";
 import { randomFeaturesPage } from "../random-features/randomFeatures.js";
 
 function openPage(content) {
@@ -24,7 +24,7 @@ export function openAboutPage() {
 export function openChatPage() {
   setBodyClass("home-page");
 
-  openPage(createPostHeader(), createNewPost());
+  openPage(postPage());
 }
 
 export function openRandomFeaturesPage() {

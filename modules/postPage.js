@@ -1,13 +1,12 @@
-import { renderFeed } from "./ChatPage.js";
 import { dom } from "./dom.js";
 import { firebase } from "./firebase.js";
 import { icons } from "./icons.js";
+import { renderFeed } from "./feed.js";
 
-// document.body.append(createPostHeader());
-// document.body.append(createNewPost());
+export function postPage() {
+  const page = dom.create("section");
 
-export function createPostHeader() {
-  const chatHeader = dom.create("header", "chatHeading", "Chat");
+  const chatHeader = dom.createAndAppend(page, "header", "chatHeading", "Chat");
   const newPostButton = dom.createAndAppend(
     chatHeader,
     "button",
@@ -16,15 +15,15 @@ export function createPostHeader() {
   );
 
   newPostButton.addEventListener("click", () => {
-    console.log(createNewPost());
-    createNewPost();
     document.body.append(createNewPost());
   });
 
-  return chatHeader;
+  page.append(renderFeed());
+
+  return page;
 }
 
-export function createNewPost() {
+function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
   const closeButton = dom.createAndAppend(
     newPostDiv,
@@ -44,44 +43,43 @@ export function createNewPost() {
   );
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
 
-  const moodButtons = [
-    icons("sad"),
-    icons("turbulent"),
-    icons("happy"),
-    icons("mad"),
-  ];
+  const moods = ["happy", "turbulent", "sad", "mad"];
 
-  chooseMoodDiv.innerHTML = moodButtons
-    .map((mood) => `<div><input type="radio" name="mood" value="${mood}</div>`)
-    .join("");
-  //   <label for="${mood}">${mood}</label> id="${mood}
+  moods.forEach((mood) => {
+    const inputWrapper = dom.createAndAppend(chooseMoodDiv, "div");
 
-  //   const sadMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   sadMoodIcon.setAttribute("type", "radio");
+    const radioInput = dom.createAndAppend(inputWrapper, "input");
+    radioInput.name = "mood";
+    radioInput.type = "radio";
+    radioInput.value = mood;
 
-  //   const turbulentMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   turbulentMoodIcon.setAttribute("type", "radio");
-
-  //   const happyMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   happyMoodIcon.setAttribute("type", "radio");
-
-  //   const madMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   madMoodIcon.setAttribute("type", "radio");
+    inputWrapper.innerHTML += icons(mood);
+  });
 
   const writePostText = dom.createAndAppend(
     newPostDiv,
     "textarea",
     "newPostText"
   );
+
   writePostText.placeholder = "Whatcha doing?...";
-  const PostBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
+  const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
 
   closeButton.addEventListener("click", () => {
-    console.log(createNewPost.remove());
-    createNewPost.remove();
+    newPostDiv.remove();
   });
 
-  newPostDiv.addEventListener("click", () => {});
+  postBtn.addEventListener("click", () => {
+    const message = {
+      author: titleDiv.value,
+      content: writePostText.value,
+      mood: document.querySelector("input[type=radio]:checked").value,
+    };
+
+    firebase.POST(message).then((r) => {
+      location.reload();
+    });
+  });
 
   return newPostDiv;
 }
