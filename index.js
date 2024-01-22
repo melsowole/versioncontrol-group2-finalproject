@@ -2,7 +2,6 @@ import { dom } from "./modules/dom.js";
 import { firebase } from "./modules/firebase.js";
 import { displayLanding } from "./modules/landing.js";
 import * as nav from "./modules/navigation.js";
-// sessionStorage.clear();
 
 const navItems = [
   { id: "chatBtn", openPage: nav.openChatPage },
@@ -22,5 +21,3 @@ displayLanding.then(() => {
     document.getElementById(item.id).addEventListener("click", item.openPage);
   });
 });
-
-
