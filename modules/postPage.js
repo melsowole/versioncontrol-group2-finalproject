@@ -41,9 +41,12 @@ export function createNewPost() {
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
 
   const moodIcons = ["sad", "turbulent", "happy", "mad"];
+  const savedMood = localStorage.getItem("selectedMood") || "happy";
   chooseMoodDiv.innerHTML = moodIcons
     .map((mood) => {
       const iconSvg = icons(mood);
+      const isChecked = mood === savedMood ? "checked" : "";
+
       return `<div class="moodIcon">
                 <input type="radio" name="mood" value="${mood}" id="${mood}Radio">
                 <label for="${mood}Radio">${iconSvg}</label>
@@ -59,6 +62,8 @@ export function createNewPost() {
         element.classList.remove("selected");
       });
       iconElement.classList.add("selected");
+      const selectedMood = iconElement.querySelector("input").value;
+      localStorage.setItem("selectedMood", selectedMood);
     });
   });
 
@@ -94,6 +99,9 @@ export function createNewPost() {
   );
   writePostText.placeholder = "Whatcha doing?...";
   const PostBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
+
+    const happyIcon = moodIconsElements[2];
+    happyIcon.classList.add("selected");
 
   return newPostDiv;
 }
