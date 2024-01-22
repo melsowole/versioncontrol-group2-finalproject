@@ -165,7 +165,7 @@
   }
   .blobText > p {
     width: 20vw;
-    line-height: 40px;
+    line-height: 30px;
   }
   .blobText {
     animation: slideInFromRight 1s ease forwards;
