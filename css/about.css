@@ -1,5 +1,9 @@
 .aboutH1 {
     color: var(--text);
+    text-align: left;
+    margin: 10px;
+    padding: 0;
+    font-size: 30px;
 }
 
 .aboutSection {
