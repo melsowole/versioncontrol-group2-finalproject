@@ -2,6 +2,7 @@ import { dom } from "./modules/dom.js";
 import { firebase } from "./modules/firebase.js";
 import { displayLanding } from "./modules/landing.js";
 import * as nav from "./modules/navigation.js";
+import { scrollFunc, scrollToTop } from "./modules/backToTop.js";
 
 const navItems = [
   { id: "chatBtn", openPage: nav.openChatPage },
@@ -22,17 +23,6 @@ displayLanding.then(() => {
   });
 });
 
-const toTheTop = document.getElementById('toTheTopArrow')
-window.onscroll = function() {scrollFunc()};
-function scrollFunc(){
-  if(document.body.scrollTop >300 || document.documentElement.scrollTop >300){
-    toTheTop.style.display='inline-block'
-  }
-  else{
-    toTheTop.style.display='none'
-  }
-}
-toTheTop.addEventListener('click',event=>{
-  document.documentElement.scrollTop = 0;
-  event.preventDefault()
-})
+window.addEventListener("scroll", scrollFunc);
+
+document.getElementById("toTheTopArrow").addEventListener("click", scrollToTop);
