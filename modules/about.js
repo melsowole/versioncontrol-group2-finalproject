@@ -31,6 +31,7 @@ function blobsFunctionality() {
         return;
       }
 
+      blob.classList.add("blobClicked" + (index + 1));
       blob.classList.add("clickedBlob");
       blob.querySelector(".blobText").style.display = "flex";
     });
