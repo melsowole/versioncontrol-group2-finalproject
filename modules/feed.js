@@ -28,6 +28,6 @@ function createPost(message) {
     "post-content",
     message.content
   );
-
+ 
   return post;
 }
