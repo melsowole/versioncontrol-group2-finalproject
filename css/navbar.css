@@ -10,16 +10,27 @@
     position: fixed;
     transform: translateX(15%);
 }
-#toTheTopArrow{
-    display: none;
-}
+
 button{
     font-size: 30px;
     padding: 10px;
+    height: 65px;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
     background-color: transparent;
     border: none;
     cursor: pointer;
     border-radius: 50%;
+
+}
+
+#toTheTopArrow{
+    display: none;
+    position: fixed;
+    right: 1rem;
+    background-color: var(--primary);
+
 }
 
 @media (min-width: 800px) {
