@@ -45,17 +45,32 @@ function createNewPost() {
   );
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
 
-  const moods = ["happy", "turbulent", "sad", "mad"];
 
-  moods.forEach((mood) => {
-    const inputWrapper = dom.createAndAppend(chooseMoodDiv, "div");
+  const moodIcons = ["sad", "turbulent", "happy", "mad"];
+  const savedMood = localStorage.getItem("selectedMood") || "happy";
+  chooseMoodDiv.innerHTML = moodIcons
+    .map((mood) => {
+      const iconSvg = icons(mood);
+      const isChecked = mood === savedMood ? "checked" : "";
 
-    const radioInput = dom.createAndAppend(inputWrapper, "input");
-    radioInput.name = "mood";
-    radioInput.type = "radio";
-    radioInput.value = mood;
+      return `<div class="moodIcon">
+                <input type="radio" name="mood" value="${mood}" id="${mood}Radio">
+                <label for="${mood}Radio">${iconSvg}</label>
+              </div>`;
+    })
+    .join("");
 
-    inputWrapper.innerHTML += icons(mood);
+  const moodIconsElements = newPostDiv.querySelectorAll(".moodIcon");
+
+  moodIconsElements.forEach((iconElement) => {
+    iconElement.addEventListener("click", () => {
+      moodIconsElements.forEach((element) => {
+        element.classList.remove("selected");
+      });
+      iconElement.classList.add("selected");
+      const selectedMood = iconElement.querySelector("input").value;
+      localStorage.setItem("selectedMood", selectedMood);
+    });
   });
 
   const writePostText = dom.createAndAppend(
@@ -63,6 +78,10 @@ function createNewPost() {
     "textarea",
     "newPostText"
   );
+
+    const happyIcon = moodIconsElements[2];
+    happyIcon.classList.add("selected");
+
 
   writePostText.placeholder = "Whatcha doing?...";
   const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
@@ -93,6 +112,7 @@ function createNewPost() {
     });
   });
   
+
   return newPostDiv;
 }  
 
