@@ -1,28 +1,28 @@
 .aboutH1 {
-    color: var(--text);
+  color: var(--text);
 }
 
 .aboutSection {
-    width: 100vw;
-    height: 100svh;
+  width: 100vw;
+  height: 100svh;
 }
 
 .aboutH2 {
-    position: absolute;
-    right: 5%;
-    bottom: 20%;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+  position: absolute;
+  right: 5%;
+  bottom: 20%;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
 
-@media (min-width: 800px){
-    .aboutH1 {
-        margin-left: 5rem;
-        position: absolute;
-        top: 45%;
-        font-size: 30px;
-    }
-    .aboutH2 {
-        font-size: 30px;
-    }
+@media (min-width: 800px) {
+  .aboutH1 {
+    margin-left: 5rem;
+    position: absolute;
+    top: 15rem;
+    font-size: 2.5rem;
+  }
+  .aboutH2 {
+    font-size: 30px;
+  }
 }

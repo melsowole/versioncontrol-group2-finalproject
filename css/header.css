@@ -1,18 +1,18 @@
-h1{
-    text-align: center;
-    margin: 0;
-    padding: 1rem 3rem;
+h1 {
+  text-align: left;
+  font-size: 2rem;
+  margin: 1rem;
+  padding: 0.6rem;
 }
 
-
-@media (max-width: 799px){
- .hide-on-mobile{
+@media (max-width: 799px) {
+  .hide-on-mobile {
     display: none;
-}   
+  }
 }
 
-@media (min-width: 800px){
-    h1{
-        text-align: right;
-    }
+@media (min-width: 800px) {
+  h1 {
+    text-align: right;
+  }
 }

@@ -1,11 +1,8 @@
 .chatHeading {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 3rem;
+  font-size: 2rem;
   width: auto;
-  margin: 1rem;
-  padding: 0.6rem;
 }
 
 .newPostBtn {
@@ -26,7 +23,7 @@
   margin: auto;
   width: 90%;
   position: absolute;
-  top: 10rem;
+  top: 8rem;
   left: 5%;
 }
 
@@ -88,6 +85,7 @@
 }
 
 .chooseMood label {
+  display: flex;
   cursor: pointer;
   margin: 0;
 }
@@ -97,8 +95,8 @@
 }
 .moodIcon.selected {
   background-color: var(--primary);
-  /* border-radius: 5px; */
-  padding: 0.5rem;
+  padding-bottom: 0.9rem;
+  padding-top: 0.9rem;
 }
 
 .moodIcon.selected::before {
@@ -148,8 +146,9 @@
   }
   .chatHeading {
     margin-left: 7rem;
-    top: 0;
+    top: 6rem;
     position: absolute;
+    align-items: center;
   }
   .newPostBtn {
     height: auto;

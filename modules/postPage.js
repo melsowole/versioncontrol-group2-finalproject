@@ -6,7 +6,7 @@ import { renderFeed } from "./feed.js";
 export function postPage() {
   const page = dom.create("section");
 
-  const chatHeader = dom.createAndAppend(page, "header", "chatHeading", "Chat");
+  const chatHeader = dom.createAndAppend(page, "h1", "chatHeading", "Chat");
   const newPostButton = dom.createAndAppend(
     chatHeader,
     "button",
@@ -16,8 +16,6 @@ export function postPage() {
 
   newPostButton.addEventListener("click", () => {
     document.body.append(createNewPost());
-    
-    
   });
 
   page.append(renderFeed());
@@ -44,7 +42,6 @@ function createNewPost() {
     "Choose your mood:"
   );
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
-
 
   const moodIcons = ["sad", "turbulent", "happy", "mad"];
   const savedMood = localStorage.getItem("selectedMood") || "happy";
@@ -79,19 +76,16 @@ function createNewPost() {
     "newPostText"
   );
 
-    const happyIcon = moodIconsElements[2];
-    happyIcon.classList.add("selected");
-
+  const happyIcon = moodIconsElements[2];
+  happyIcon.classList.add("selected");
 
   writePostText.placeholder = "Whatcha doing?...";
   const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
-  
 
   closeButton.addEventListener("click", () => {
     newPostDiv.remove();
   });
 
-  
   postBtn.addEventListener("click", () => {
     const message = {
       author: titleDiv.value,
@@ -102,17 +96,15 @@ function createNewPost() {
     // Added a feature that triggers a audio when the user clicks on "Post."
     // The 'submitSound' event listener waits for the audio to complete before reloading the page.
     firebase.POST(message).then(() => {
-      const submitSound = new Audio('./audio/post-sound.mp3');
-      
+      const submitSound = new Audio("./audio/post-sound.mp3");
+
       submitSound.play();
-  
-      submitSound.addEventListener('ended', () => {
+
+      submitSound.addEventListener("ended", () => {
         location.reload();
       });
     });
   });
-  
 
   return newPostDiv;
-}  
-
+}
