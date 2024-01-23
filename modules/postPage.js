@@ -3,6 +3,9 @@ import { firebase } from "./firebase.js";
 import { icons } from "./icons.js";
 import { renderFeed } from "./feed.js";
 
+// Stoffe: Added this module
+import { countInputInElement } from "./inputlimit.js";
+
 export function postPage() {
   const page = dom.create("section");
 
@@ -16,8 +19,8 @@ export function postPage() {
 
   newPostButton.addEventListener("click", () => {
     document.body.append(createNewPost());
-    
-    
+
+
   });
 
   page.append(renderFeed());
@@ -79,19 +82,27 @@ function createNewPost() {
     "newPostText"
   );
 
-    const happyIcon = moodIconsElements[2];
-    happyIcon.classList.add("selected");
+  // stoffe start: Added character counter for textarea (see textlimit.js), 150 = character limit
+  countInputInElement(writePostText, 150, (maxLength, charactersLeft) => {
+    if (charactersLeft <= 0) {
+      alert(`Your message may only contain up to ${maxLength} characters!`);
+    }
+  });
+  // stoffe end
+
+  const happyIcon = moodIconsElements[2];
+  happyIcon.classList.add("selected");
 
 
   writePostText.placeholder = "Whatcha doing?...";
   const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
-  
+
 
   closeButton.addEventListener("click", () => {
     newPostDiv.remove();
   });
 
-  
+
   postBtn.addEventListener("click", () => {
     const message = {
       author: titleDiv.value,
@@ -103,16 +114,16 @@ function createNewPost() {
     // The 'submitSound' event listener waits for the audio to complete before reloading the page.
     firebase.POST(message).then(() => {
       const submitSound = new Audio('./audio/post-sound.mp3');
-      
+
       submitSound.play();
-  
+
       submitSound.addEventListener('ended', () => {
         location.reload();
       });
     });
   });
-  
+
 
   return newPostDiv;
-}  
+}
 
