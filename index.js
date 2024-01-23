@@ -21,3 +21,18 @@ displayLanding.then(() => {
     document.getElementById(item.id).addEventListener("click", item.openPage);
   });
 });
+
+const toTheTop = document.getElementById('toTheTopArrow')
+window.onscroll = function() {scrollFunc()};
+function scrollFunc(){
+  if(document.body.scrollTop >300 || document.documentElement.scrollTop >300){
+    toTheTop.style.display='inline-block'
+  }
+  else{
+    toTheTop.style.display='none'
+  }
+}
+toTheTop.addEventListener('click',event=>{
+  document.documentElement.scrollTop = 0;
+  event.preventDefault()
+})

@@ -16,7 +16,9 @@
   --fontKadwa: 'Kadwa';
   --fontFreehand: 'Freehand';
 }
-
+html {
+  scroll-behavior: smooth;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #121212;

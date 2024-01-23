@@ -10,7 +10,9 @@
     position: fixed;
     transform: translateX(15%);
 }
-
+#toTheTopArrow{
+    display: none;
+}
 button{
     font-size: 30px;
     padding: 10px;
