@@ -1,39 +1,38 @@
 import { contactPage } from "./contact.js";
 import { aboutPage } from "./about.js";
-import { createPostHeader, createNewPost } from "./postPage.js";
+import { postPage } from "./postPage.js";
+import { randomFeaturesPage } from "../random-features/randomFeatures.js";
 
 function openPage(content) {
-    const pageContent = document.querySelector(".page-content");
-    pageContent.innerHTML = "";
-    pageContent.append(content);
+  const pageContent = document.querySelector(".page-content");
+  pageContent.innerHTML = "";
+  pageContent.append(content);
 }
 
 export function openContactPage() {
-    openPage(contactPage());
+  setBodyClass("contact-page");
+
+  openPage(contactPage());
 }
 
 export function openAboutPage() {
-    openPage(aboutPage());
+  setBodyClass("about-page");
+
+  openPage(aboutPage());
 }
 
 export function openChatPage() {
-    openPage(createPostHeader(), createNewPost());
+  setBodyClass("home-page");
+
+  openPage(postPage());
 }
 
-// export function openContactPage(){
-//     const pageContent = document.querySelector(".page-content");
-//     pageContent.innerHTML = "";
-//     pageContent.append(contactPage());
-// }
+export function openRandomFeaturesPage() {
+  setBodyClass("random-features-page");
 
-// export function openAboutPage(){
-//     const pageContent = document.querySelector(".page-content");
-//     pageContent.innerHTML = "";
-//     pageContent.append(aboutPage());
-// }
+  openPage(randomFeaturesPage());
+}
 
-// export function openChatPage(){
-//     const pageContent = document.querySelector(".page-content");
-//     pageContent.innerHTML = "";
-//     pageContent.append(createPostHeader(), createNewPost());
-// }
+function setBodyClass(pageName) {
+  document.body.classList = pageName;
+}

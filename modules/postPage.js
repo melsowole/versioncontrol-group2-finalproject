@@ -1,33 +1,38 @@
 import { dom } from "./dom.js";
 import { firebase } from "./firebase.js";
 import { icons } from "./icons.js";
+import { renderFeed } from "./feed.js";
 
-// function renderPostPage() {
-//   dom.create("section", ".PostPageSection");
-// }
+export function postPage() {
+  const page = dom.create("section");
 
-// document.body.append(createPostHeader());
-// document.body.append(createNewPost());
-
-export function createPostHeader() {
-  const chatHeader = dom.create("header", "chatHeading", "Chat");
+  const chatHeader = dom.createAndAppend(page, "header", "chatHeading", "Chat");
   const newPostButton = dom.createAndAppend(
     chatHeader,
     "button",
     "newPostBtn",
-    "Add new post"
+    "+"
   );
 
-  return chatHeader;
+  newPostButton.addEventListener("click", () => {
+    document.body.append(createNewPost());
+    
+    
+  });
+
+  page.append(renderFeed());
+
+  return page;
 }
 
-export function createNewPost() {
+function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
-  let closeButton = document.querySelector("#closeNewPostPopUp");
-  //   closeButton.dom.create("button");
-  newPostDiv.append(closeButton);
-
-  //   closeButton = dom.createAndAppend(newPostDiv, "button");
+  const closeButton = dom.createAndAppend(
+    newPostDiv,
+    "button",
+    "closePostBtn",
+    "X"
+  );
 
   const titleDiv = dom.createAndAppend(newPostDiv, "input", "newPostTitle");
   titleDiv.placeholder = "Write your title here...";
@@ -39,6 +44,7 @@ export function createNewPost() {
     "Choose your mood:"
   );
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
+
 
   const moodIcons = ["sad", "turbulent", "happy", "mad"];
   const savedMood = localStorage.getItem("selectedMood") || "happy";
@@ -67,45 +73,46 @@ export function createNewPost() {
     });
   });
 
-
-  // const moodButtons = [
-  //   icons("sad"),
-  //   icons("turbulent"),
-  //   icons("happy"),
-  //   icons("mad"),
-  // ];
-
-  // chooseMoodDiv.innerHTML = moodButtons
-  //   .map((mood) => `<div><input type="radio" name="mood" value="${mood}</div>`)
-  //   .join("");
-  //   <label for="${mood}">${mood}</label> id="${mood}
-
-  //   const sadMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   sadMoodIcon.setAttribute("type", "radio");
-
-  //   const turbulentMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   turbulentMoodIcon.setAttribute("type", "radio");
-
-  //   const happyMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   happyMoodIcon.setAttribute("type", "radio");
-
-  //   const madMoodIcon = dom.createAndAppend(chooseMoodDiv, "input");
-  //   madMoodIcon.setAttribute("type", "radio");
-
   const writePostText = dom.createAndAppend(
     newPostDiv,
     "textarea",
     "newPostText"
   );
-  writePostText.placeholder = "Whatcha doing?...";
-  const PostBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
 
     const happyIcon = moodIconsElements[2];
     happyIcon.classList.add("selected");
 
-  return newPostDiv;
-}
 
-// newPostButton.addEventlistener("click", (event) => {
-//   event.preventDefault();
-// });
+  writePostText.placeholder = "Whatcha doing?...";
+  const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
+  
+
+  closeButton.addEventListener("click", () => {
+    newPostDiv.remove();
+  });
+
+  
+  postBtn.addEventListener("click", () => {
+    const message = {
+      author: titleDiv.value,
+      content: writePostText.value,
+      mood: document.querySelector("input[type=radio]:checked").value,
+    };
+
+    // Added a feature that triggers a audio when the user clicks on "Post."
+    // The 'submitSound' event listener waits for the audio to complete before reloading the page.
+    firebase.POST(message).then(() => {
+      const submitSound = new Audio('./audio/post-sound.mp3');
+      
+      submitSound.play();
+  
+      submitSound.addEventListener('ended', () => {
+        location.reload();
+      });
+    });
+  });
+  
+
+  return newPostDiv;
+}  
+

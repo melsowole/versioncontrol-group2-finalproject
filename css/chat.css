@@ -1,13 +1,20 @@
 .chatHeading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 3rem;
   width: auto;
   margin: 1rem;
+  padding: 0.6rem;
 }
 
 .newPostBtn {
-  padding: 0.5rem;
+  cursor: pointer;
+  height: fit-content;
+  background-color: transparent;
+  border: 0;
+  font-size: 2rem;
+  color: var(--text);
 }
 
 .newPostDiv {
@@ -17,24 +24,27 @@
   border-radius: 5px;
   padding-bottom: 0.5rem;
   margin: 1rem;
+  width: 90%;
+  position: absolute;
+  top: 10rem;
+  left: 0rem;
 }
 
 .newPostDiv svg {
   width: 20px;
   height: 20px;
-  /* border-radius: 20px; */
 }
 
-#closeNewPostPopUp {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 1rem;
-  margin-top: 1rem;
+.closePostBtn {
+  cursor: pointer;
+  margin-left: 90%;
+  padding: 0.6rem;
+  height: fit-content;
+  background-color: transparent;
+  border: 0;
+  font-size: 1rem;
+  color: var(--text);
 }
-
-/* .newPostDiv svg:hover {
-  background-color: var(--primary);
-} */
 
 .newPostTitle {
   display: block;
@@ -43,6 +53,10 @@
   padding: 0.5rem;
   border-radius: 5px;
   border: 2px solid var(--primary);
+  height: 2rem;
+  width: 80%;
+  background-color: var(--background);
+  color: var(--text);
   height: 3rem;
   width: 90%;
 }
@@ -65,7 +79,7 @@
   padding: 1rem;
   border-radius: 5px;
   border: 2px solid var(--primary);
-  background-color: white;
+  background-color: var(--background);
 }
 
 .chooseMood input[type="radio"] {
@@ -104,6 +118,8 @@
   width: 90%;
   border-radius: 5px;
   border: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
 }
 
 .PostBtn {
@@ -114,7 +130,12 @@
   padding: 0.3rem;
   border: 2px solid var(--primary);
   border-radius: 20px;
-  background-color: white;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.PostBtn:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 800px){

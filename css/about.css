@@ -9,8 +9,20 @@
 
 .aboutH2 {
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 5%;
+    bottom: 20%;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+}
+
+@media (min-width: 800px){
+    .aboutH1 {
+        margin-left: 5rem;
+        position: absolute;
+        top: 45%;
+        font-size: 30px;
+    }
+    .aboutH2 {
+        font-size: 30px;
+    }
 }

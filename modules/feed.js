@@ -1,16 +1,13 @@
 import { dom } from "./dom.js";
 import { firebase } from "./firebase.js";
-import {icons} from "./icons.js";
-
-document.body.append(renderFeed());
+import { icons } from "./icons.js";
 
 export function renderFeed() {
   const section = dom.create("section", "feed");
 
   firebase.GET().then((messages) => {
-    console.log(messages);
     for (const id in messages) {
-      section.append(createPost(messages[id]));
+      section.prepend(createPost(messages[id]));
     }
   });
 
@@ -31,6 +28,6 @@ function createPost(message) {
     "post-content",
     message.content
   );
-
+ 
   return post;
 }
