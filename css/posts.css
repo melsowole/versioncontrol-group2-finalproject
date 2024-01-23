@@ -40,3 +40,11 @@
 .post-author {
   font-weight: bold;
 }
+
+@media (min-width: 800px) {
+  .feed {
+    width: 40%;
+    margin-left: 25%;
+    margin-top: 1rem;
+  }
+}
