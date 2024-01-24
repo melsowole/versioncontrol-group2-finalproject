@@ -33,8 +33,14 @@ export function postPage() {
   return page;
 }
 
+let isCreateNewPostOpen = false;
+
 function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
+
+  isCreateNewPostOpen = true;
+
+
   const closeButton = dom.createAndAppend(
     newPostDiv,
     "button",
@@ -105,7 +111,9 @@ function createNewPost() {
 
   closeButton.addEventListener("click", () => {
     newPostDiv.remove();
+    isCreateNewPostOpen = false;
     isPopupOpen = false;
+
   });
 
 
@@ -134,3 +142,21 @@ function createNewPost() {
   return newPostDiv;
 }
 
+function closeCreateNewPost () {
+  const newPostDiv = document.querySelector('.newPostDiv');
+
+  if (newPostDiv) {
+    newPostDiv.remove();
+    isCreateNewPostOpen = false;
+  }
+}
+
+document.addEventListener('click', (event) => {
+  const target = event.target;
+
+  if (target.closest('i')) {
+    if (isCreateNewPostOpen) {
+      closeCreateNewPost();
+    }
+  }
+});
