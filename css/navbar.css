@@ -3,12 +3,18 @@
     width: 80%;
     margin: auto;
     justify-content: space-evenly;
-    background: linear-gradient(0deg, var(--gradientNeutral) 0%, var(--background) 100%);
+    background: linear-gradient(0deg, var(--navColor) 0%, var(--background) 100%);
+    /* background: var(--navColor); */
     border: var(--border);
     border-radius: 40px;
     bottom: 1rem;
     position: fixed;
     transform: translateX(15%);
+}
+
+#bottomNav i{
+    color: var(--text);
+
 }
 
 #bottomNav button, #toTheTopArrow{
@@ -28,7 +34,8 @@
 #toTheTopArrow{
     display: none;
     position: fixed;
-    right: 1rem;
+    right: 2rem;
+    top: 2rem;
     background-color: var(--primary);
 
 }
@@ -45,6 +52,8 @@
         width: auto;
         transform: none;
         margin-right: 10px;
-        background: linear-gradient(90deg, var(--gradientNeutral) 0%, var(--background) 100%);
+        background: linear-gradient(90deg, var(--background) 0%, var(--navColor) 100%);
+        /* background: var(--navColor); */
+
     }
     }
