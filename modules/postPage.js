@@ -110,7 +110,7 @@ function createNewPost() {
   postBtn.addEventListener("click", () => {
     const message = {
       author: titleDiv.value,
-      content: writePostText.value,
+      content: capitalizeFirstLetter(writePostText.value),
       mood: document.querySelector("input[type=radio]:checked").value,
     };
 
@@ -130,5 +130,8 @@ function createNewPost() {
 
 
   return newPostDiv;
+}
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
