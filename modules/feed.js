@@ -20,7 +20,10 @@ function createPost(message) {
   const mood = dom.createAndAppend(post, "div", "post-mood");
   mood.innerHTML = icons(message.mood);
 
-  const author = dom.createAndAppend(post, "p", "post-author", message.author);
+  const timestamp = message.timestamp? new Date(message.timestamp) : '';
+  const authorNameWithTime = timestamp? `${message.author} - ${timestamp.getHours()}:${timestamp.getMinutes()}` : message.author;
+  
+  const author = dom.createAndAppend(post, "p", "post-author", authorNameWithTime);
 
   const content = dom.createAndAppend(
     post,

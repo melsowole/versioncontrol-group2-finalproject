@@ -132,6 +132,7 @@ function createNewPost() {
       author: titleDiv.value,
       content: fixText (writePostText.value),
       mood: document.querySelector("input[type=radio]:checked").value,
+      timestamp: new Date()
     };
 
     // Added a feature that triggers a audio when the user clicks on "Post."
