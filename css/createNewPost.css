@@ -92,11 +92,10 @@
 
 .moodIcon {
   position: relative;
+  padding: 0.9rem;
 }
 .moodIcon.selected {
   background-color: var(--primary);
-  padding-bottom: 0.9rem;
-  padding-top: 0.9rem;
 }
 
 .moodIcon.selected::before {
@@ -125,8 +124,8 @@
   display: block;
   margin: auto;
   margin-top: 0.5rem;
-  width: 9rem;
-  padding: 0.3rem;
+  width: 7rem;
+  /* padding: 0.3rem; */
   border: 2px solid var(--primary);
   border-radius: 20px;
   background-color: var(--background);
@@ -135,6 +134,7 @@
 
 .PostBtn:hover {
   cursor: pointer;
+  background-color: var(--primary);
 }
 
 @media (min-width: 800px) {
