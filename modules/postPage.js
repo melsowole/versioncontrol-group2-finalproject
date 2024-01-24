@@ -6,6 +6,8 @@ import { renderFeed } from "./feed.js";
 // Stoffe: Added this module
 import { countInputInElement } from "./inputlimit.js";
 
+let isPopupOpen =false;
+
 export function postPage() {
   const page = dom.create("section");
 
@@ -18,9 +20,10 @@ export function postPage() {
   );
 
   newPostButton.addEventListener("click", () => {
-    document.body.append(createNewPost());
-
-
+    if (!isPopupOpen){
+      isPopupOpen = true;
+      document.body.append(createNewPost());
+    }
   });
 
   page.append(renderFeed());
@@ -107,6 +110,8 @@ function createNewPost() {
   closeButton.addEventListener("click", () => {
     newPostDiv.remove();
     isCreateNewPostOpen = false;
+    isPopupOpen = false;
+
   });
 
 
@@ -126,6 +131,7 @@ function createNewPost() {
 
       submitSound.addEventListener('ended', () => {
         location.reload();
+        isPopupOpen = false;
       });
     });
   });
