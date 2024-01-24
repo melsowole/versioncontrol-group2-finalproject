@@ -6,7 +6,9 @@ import { renderFeed } from "./feed.js";
 // Stoffe: Added this module
 import { countInputInElement } from "./inputlimit.js";
 
-let isPopupOpen =false;
+let isClicked = false;
+
+let isPopupOpen = false;
 
 export function postPage() {
   const page = dom.create("section");
@@ -22,7 +24,7 @@ export function postPage() {
   );
 
   newPostButton.addEventListener("click", () => {
-    if (!isPopupOpen){
+    if (!isPopupOpen) {
       isPopupOpen = true;
       document.body.append(createNewPost());
     }
@@ -34,6 +36,14 @@ export function postPage() {
 }
 
 let isCreateNewPostOpen = false;
+
+
+const btn = document.querySelector('#muteBtn')
+btn.addEventListener('click', event => {
+  event.preventDefault();
+  btn.className = "fa-regular fa-bell-slash";
+  isClicked = true;
+})
 
 function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
@@ -129,6 +139,11 @@ function createNewPost() {
     firebase.POST(message).then(() => {
       const submitSound = new Audio('./audio/post-sound.mp3');
 
+
+      if (isClicked) {
+        submitSound.muted = true;
+      }
+
       submitSound.play();
 
       submitSound.addEventListener('ended', () => {
@@ -142,7 +157,9 @@ function createNewPost() {
   return newPostDiv;
 }
 
-function closeCreateNewPost () {
+
+
+function closeCreateNewPost() {
   const newPostDiv = document.querySelector('.newPostDiv');
 
   if (newPostDiv) {
@@ -160,3 +177,5 @@ document.addEventListener('click', (event) => {
     }
   }
 });
+
+
