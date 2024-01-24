@@ -130,7 +130,7 @@ function createNewPost() {
   postBtn.addEventListener("click", () => {
     const message = {
       author: titleDiv.value,
-      content: writePostText.value,
+      content: fixText (writePostText.value),
       mood: document.querySelector("input[type=radio]:checked").value,
     };
 
@@ -158,8 +158,22 @@ function createNewPost() {
 }
 
 
+function fixText(str) {
+  if (str.endsWith("!") || str.endsWith("?") || str.endsWith(".")) {
+      return capitalizeFirstLetter(str);
+  }
+ 
+  return capitalizeFirstLetter(str) + '.';
+ }
+ 
+ 
+ function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+ }
+ 
 
-function closeCreateNewPost() {
+function closeCreateNewPost () {
+
   const newPostDiv = document.querySelector('.newPostDiv');
 
   if (newPostDiv) {
