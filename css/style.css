@@ -9,7 +9,7 @@
   --gradient3: linear-gradient(40deg, #8ff2ff 0%, #02ff13 100%);
   --gradient4: linear-gradient(40deg, #70c6f7 0%, #7800F0 100%);
 
-  --gradientNeutral: gainsboro;
+  --navColor: var(--primary);
 
   --border: 1px solid black;
   --borderPrimary: 1px solid var(var(--primary));
@@ -24,7 +24,8 @@ html {
   :root {
     --background: #121212;
     --text: white;
-    --primary: #ff4d0086;
+  --backgroundTrans: rgba(15, 15, 15, 0.2);
+
   }
 }
 
