@@ -80,6 +80,12 @@ function createNewPost() {
   happyIcon.classList.add("selected");
 
   writePostText.placeholder = "Whatcha doing?...";
+  //   if (writePostText === "") {
+  //     alert("Please complete all required fields in the form before submitting");
+  //     console.log("funkar");
+  //     return false;
+  //   }
+
   const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
 
   closeButton.addEventListener("click", () => {
@@ -92,6 +98,13 @@ function createNewPost() {
       content: writePostText.value,
       mood: document.querySelector("input[type=radio]:checked").value,
     };
+
+    if ((message == message.author) === "" || message.content === "") {
+      alert(
+        "Please complete all required fields in the form before submitting"
+      );
+      return false;
+    }
 
     // Added a feature that triggers a audio when the user clicks on "Post."
     // The 'submitSound' event listener waits for the audio to complete before reloading the page.
