@@ -128,6 +128,7 @@ function createNewPost() {
 
 
   postBtn.addEventListener("click", () => {
+    //Angelica added timestamp to database 
     const message = {
       author: titleDiv.value,
       content: fixText (writePostText.value),
