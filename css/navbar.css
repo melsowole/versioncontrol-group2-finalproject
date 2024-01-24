@@ -11,7 +11,7 @@
     transform: translateX(15%);
 }
 
-button{
+#bottomNav button, #toTheTopArrow{
     font-size: 30px;
     padding: 10px;
     height: 65px;

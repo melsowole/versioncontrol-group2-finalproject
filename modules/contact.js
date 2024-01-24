@@ -6,7 +6,7 @@ export function contactPage() {
 
   const contactH1El = dom.createAndAppend(
     contactWrapper,
-    "h1",
+    "h2",
     "contactH1",
     "Contact"
   );

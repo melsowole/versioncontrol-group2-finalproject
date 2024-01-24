@@ -11,7 +11,9 @@ let isPopupOpen =false;
 export function postPage() {
   const page = dom.create("section");
 
-  const chatHeader = dom.createAndAppend(page, "header", "chatHeading", "Chat");
+  dom.createAndAppend(page, "h2", "chat-h2", "Chat");
+
+  const chatHeader = dom.createAndAppend(page, "header", "chatHeading");
   const newPostButton = dom.createAndAppend(
     chatHeader,
     "button",

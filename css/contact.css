@@ -1,14 +1,9 @@
-.contactH1{
-    text-align: left;
-    color: var(--text);
-    margin: 10px;
-    padding: 0;
-    font-size: 30px;
-}
+
 .contactDiv{
     display: grid;
     grid-template-columns: auto 1fr;
-    margin: 10px;
+    grid-template-rows: auto auto;
+    margin: 0 2rem;
     padding: 20px;
     height: 70vh;
     justify-content: center;
@@ -17,6 +12,7 @@
     color: var(--text);
 }
 .contactH2{
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     writing-mode: vertical-rl;
@@ -26,14 +22,17 @@
     font-size: 40px;
     color: var(--text);
 }
+
+.contactDiv div{
+    grid-column: 1 / span 2;
+    padding-left: 25%;
+
+}
 .contactDiv p{
-    grid-column: 2;
-    text-align: left;
-    margin: 10px;
-    margin-left: -30px;
     font-size: 20px;
     color: var(--text);
 }
+
 .contactDiv p:first-child {
     margin-top: 75px;
 }
@@ -41,21 +40,12 @@
 @media (min-width: 800px){
     .contactDiv{
         width: 60%;
-        margin-top: 6rem;
-        margin-left: auto;
-        margin-right: 9rem;
+        margin: auto;
+
     }
-    .contactH1{
-        margin-left: 6rem;
-    }
+    
 }
-@media (min-width: 1000px){
-    .contactH1{
-        margin-left: 10rem;
-        position: absolute;
-        top: 65%;
-    }
-}
+
 
 
 

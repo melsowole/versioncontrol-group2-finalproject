@@ -1,12 +1,14 @@
 import { contactPage } from "./contact.js";
 import { aboutPage } from "./about.js";
 import { postPage } from "./postPage.js";
+import { dom } from "./dom.js";
 import { randomFeaturesPage } from "../random-features/randomFeatures.js";
 
 function openPage(content) {
   const pageContent = document.querySelector(".page-content");
   pageContent.innerHTML = "";
-  pageContent.append(content);
+
+  pageContent.append(header(), content);
 }
 
 export function openContactPage() {
@@ -35,4 +37,13 @@ export function openRandomFeaturesPage() {
 
 function setBodyClass(pageName) {
   document.body.classList = pageName;
+}
+
+function header() {
+  return dom.createAndAppend(
+    dom.create("header"),
+    "h1",
+    "hide-on-mobile",
+    "WYD"
+  );
 }
