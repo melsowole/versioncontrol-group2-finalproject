@@ -21,8 +21,8 @@ function createPost(message) {
   mood.innerHTML = icons(message.mood);
 
   //Angelica added timestamp end of author name, if timestamp exist
-  const timestamp = message.timestamp? new Date(message.timestamp) : ''; 
-  const authorNameWithTime = timestamp? `${message.author} - ${timestamp.getHours()}:${timestamp.getMinutes()}` : message.author;
+  const timestamp = message.timestamp? message.timestamp : '';
+  const authorNameWithTime = timestamp? `${message.author} - ${timestamp.slice(11,16)}` : message.author;
   
   const author = dom.createAndAppend(post, "p", "post-author", authorNameWithTime);
 
