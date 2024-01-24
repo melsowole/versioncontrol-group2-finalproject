@@ -33,6 +33,7 @@ export function contactPage() {
     "Mobile: 070-1234567"
   );
 
+  // Contribution Yasir grupp 1 start
   const form = dom.createAndAppend(
     contactDivEl,
     "form",
@@ -67,6 +68,8 @@ export function contactPage() {
     alert("Your message has been sent");
     form.reset();
   });
+
+  // Contribution Yasir grupp 1 End
 
   return contactWrapper;
 }
