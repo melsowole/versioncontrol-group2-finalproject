@@ -8,7 +8,6 @@ const navItems = [
   { id: "chatBtn", openPage: nav.openChatPage },
   { id: "aboutBtn", openPage: nav.openAboutPage },
   { id: "contactBtn", openPage: nav.openContactPage },
-  { id: "randomFeaturesBtn", openPage: nav.openRandomFeaturesPage },
 ];
 
 displayLanding.then(() => {

@@ -1,0 +1,48 @@
+/* Contribution Yasir grupp 1 entire file*/
+
+.contactForm{
+  display: none;
+  flex-direction: column;
+  /* align-items: center; */
+  grid-area: 2 / 2;
+  position: relative;
+
+}
+
+.contactTextArea{
+  background: transparent;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  color: var(--text);
+  padding: 0.5rem;
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.contactButton{
+  border: solid var(--primary) 2px;
+  border-radius: 20px;
+  padding: 0.3rem ;
+  margin: 1rem auto 0;
+  color: var(--text);
+  background: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  width: 9rem;
+
+}
+
+.contactFormH3{
+  padding-top: 1rem;
+}
+
+@media (min-width:800px){
+  .contactForm{
+    display: flex;
+    
+  }
+}

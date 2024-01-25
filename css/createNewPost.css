@@ -1,8 +1,21 @@
 .chatHeading {
   display: flex;
-  justify-content: space-between;
-  font-size: 2rem;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
   width: auto;
+  margin: 0 0 1rem;
+  padding: 0 2rem;
+
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+
+}
+
+.chat-h2{
+  margin-bottom: 0;
 }
 
 .newPostBtn {
@@ -34,10 +47,10 @@
 }
 
 .closePostBtn {
+  display: block;
   cursor: pointer;
   margin-left: 90%;
-  padding: 0.6rem;
-  height: fit-content;
+  padding: 1rem 0.5rem;
   background-color: transparent;
   border: 0;
   font-size: 1rem;
@@ -139,20 +152,16 @@
 
 @media (min-width: 800px) {
   .newPostDiv {
-    width: 30%;
-    margin-left: 68%;
+    width: 500px;
+    margin-left: calc(50% - 250px);
     top: 7rem;
     left: 0;
   }
-  .chatHeading {
-    margin-left: 7rem;
-    top: 6rem;
-    position: absolute;
-    align-items: center;
-  }
-  .newPostBtn {
-    height: auto;
-    margin-top: 10%;
-    margin-left: 10%;
-  }
+ .chatHeading{
+  justify-content: center;
+  position: relative;
+  top: 0rem;
+  right: 0;
+ }
+
 }

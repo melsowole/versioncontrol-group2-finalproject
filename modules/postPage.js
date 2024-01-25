@@ -3,10 +3,19 @@ import { firebase } from "./firebase.js";
 import { icons } from "./icons.js";
 import { renderFeed } from "./feed.js";
 
+// Stoffe: Added this module
+import { countInputInElement } from "./inputlimit.js";
+
+let mute = false;
+
+let isPopupOpen = false;
+
 export function postPage() {
   const page = dom.create("section");
 
-  const chatHeader = dom.createAndAppend(page, "h1", "chatHeading", "Chat");
+  dom.createAndAppend(page, "h2", "chat-h2", "Chat");
+
+  const chatHeader = dom.createAndAppend(page, "header", "chatHeading");
   const newPostButton = dom.createAndAppend(
     chatHeader,
     "button",
@@ -15,7 +24,10 @@ export function postPage() {
   );
 
   newPostButton.addEventListener("click", () => {
-    document.body.append(createNewPost());
+    if (!isPopupOpen) {
+      isPopupOpen = true;
+      document.body.append(createNewPost());
+    }
   });
 
   page.append(renderFeed());
@@ -23,8 +35,27 @@ export function postPage() {
   return page;
 }
 
+let isCreateNewPostOpen = false;
+
+const btn = document.querySelector("#muteBtn");
+btn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  if (mute) {
+    mute = false;
+    btn.className = "fa-regular fa-bell";
+  } else {
+    btn.className = "fa-regular fa-bell-slash";
+    mute = true;
+  }
+});
+
 function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
+
+  isCreateNewPostOpen = true;
+
+
   const closeButton = dom.createAndAppend(
     newPostDiv,
     "button",
@@ -76,8 +107,17 @@ function createNewPost() {
     "newPostText"
   );
 
+  // stoffe start: Added character counter for textarea (see textlimit.js), 150 = character limit
+  countInputInElement(writePostText, 150, (maxLength, charactersLeft) => {
+    if (charactersLeft <= 0) {
+      alert(`Your message may only contain up to ${maxLength} characters!`);
+    }
+  });
+  // stoffe end
+
   const happyIcon = moodIconsElements[2];
   happyIcon.classList.add("selected");
+
 
   writePostText.placeholder = "Whatcha doing?...";
   //   if (writePostText === "") {
@@ -90,13 +130,18 @@ function createNewPost() {
 
   closeButton.addEventListener("click", () => {
     newPostDiv.remove();
+    isCreateNewPostOpen = false;
+    isPopupOpen = false;
+
   });
 
   postBtn.addEventListener("click", () => {
+    //Angelica added timestamp to database 
     const message = {
       author: titleDiv.value,
-      content: writePostText.value,
+      content: fixText (writePostText.value),
       mood: document.querySelector("input[type=radio]:checked").value,
+      timestamp: new Date()
     };
 
     if ((message == message.author) === "" || message.content === "") {
@@ -109,15 +154,59 @@ function createNewPost() {
     // Added a feature that triggers a audio when the user clicks on "Post."
     // The 'submitSound' event listener waits for the audio to complete before reloading the page.
     firebase.POST(message).then(() => {
-      const submitSound = new Audio("./audio/post-sound.mp3");
+      const submitSound = new Audio('./audio/post-sound.mp3');
+
+
+      if (isClicked) {
+        submitSound.muted = true;
+      }
 
       submitSound.play();
 
-      submitSound.addEventListener("ended", () => {
+      submitSound.addEventListener('ended', () => {
         location.reload();
+        isPopupOpen = false;
       });
     });
   });
 
+
   return newPostDiv;
 }
+
+
+function fixText(str) {
+  if (str.endsWith("!") || str.endsWith("?") || str.endsWith(".")) {
+      return capitalizeFirstLetter(str);
+  }
+ 
+  return capitalizeFirstLetter(str) + '.';
+ }
+ 
+ 
+ function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+ }
+ 
+
+function closeCreateNewPost () {
+
+  const newPostDiv = document.querySelector('.newPostDiv');
+
+  if (newPostDiv) {
+    newPostDiv.remove();
+    isCreateNewPostOpen = false;
+  }
+}
+
+document.addEventListener('click', (event) => {
+  const target = event.target;
+
+  if (target.closest('i')) {
+    if (isCreateNewPostOpen) {
+      closeCreateNewPost();
+    }
+  }
+});
+
+

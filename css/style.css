@@ -2,13 +2,14 @@
   --background: white;
   --backgroundTrans: rgba(255, 255, 255, 0.2);
   --text: black;
+  --blobText: white;
   --primary: #cd9aff;
   --gradient1: linear-gradient(40deg, #f1a5fd 2%, #F0009E 100%);
   --gradient2: linear-gradient(40deg, #ffde4b 20%, #ff2903 100%);
   --gradient3: linear-gradient(40deg, #8ff2ff 0%, #02ff13 100%);
   --gradient4: linear-gradient(40deg, #70c6f7 0%, #7800F0 100%);
 
-  --gradientNeutral: gainsboro;
+  --navColor: var(--primary);
 
   --border: 1px solid black;
   --borderPrimary: 1px solid var(var(--primary));
@@ -23,7 +24,8 @@ html {
   :root {
     --background: #121212;
     --text: white;
-    --primary: #ff4d0086;
+  --backgroundTrans: rgba(15, 15, 15, 0.2);
+
   }
 }
 
@@ -51,4 +53,21 @@ body {
   margin: 0;
   height: 100svh;
   width: 100vw;
+}
+
+h2{
+  text-align: left;
+  color: var(--text);
+  margin: 1rem 2rem;
+  padding: 0;
+  font-size: 30px;
+}
+
+@media (min-width: 800px){
+  h2{
+  text-align: center;
+  font-size: 50px;
+
+
+}
 }

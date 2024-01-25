@@ -1,0 +1,9 @@
+/*
+Contribution: Limit input length and display number of remaining characters 
+by Kristoffer Bengtsson (group 4)
+*/
+
+#post-length-count {
+    display: flex;
+    justify-content: center;
+}

@@ -4,8 +4,7 @@
 
 What are you up to? What's on your mind? With the WYD (/waɪd/) app you can share it with the world! Post your current thoughts and attach your mood, and explore what other users are up to worldwyd.
 
-
-[Github Home](https://github.com/melsowole/versioncontrol-group2-finalproject)  —  [Wiki](https://github.com/melsowole/versioncontrol-group2-finalproject/wiki)  —  Pages (coming soon)
+[Github Home](https://github.com/melsowole/versioncontrol-group2-finalproject) — [Wiki](https://github.com/melsowole/versioncontrol-group2-finalproject/wiki) — Pages (coming soon)
 
 ## About The Project
 
@@ -17,9 +16,6 @@ Contributions to the project are greatly appreciated. If you have any suggestion
 
 More information on how to contribute and the guidelines can be found in the Wiki on the [contributing page](https://github.com/melsowole/versioncontrol-group2-finalproject/wiki/Contributing)
 
-
-
-
-
-
-
+Contribution Yasir grupp 1:
+Css file: contactForm
+Contactform in contact.js

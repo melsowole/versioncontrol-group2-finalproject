@@ -1,59 +1,59 @@
-#bottomNav {
-  display: flex;
-  width: 80%;
-  margin: auto;
-  justify-content: space-evenly;
-  background: linear-gradient(
-    0deg,
-    var(--gradientNeutral) 0%,
-    var(--background) 100%
-  );
-  border: var(--border);
-  border-radius: 40px;
-  bottom: 1rem;
-  position: fixed;
-  transform: translateX(15%);
+#bottomNav{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-evenly;
+    background: linear-gradient(0deg, var(--navColor) 0%, var(--background) 100%);
+    /* background: var(--navColor); */
+    border: var(--border);
+    border-radius: 40px;
+    bottom: 1rem;
+    position: fixed;
+    transform: translateX(15%);
 }
 
-#chatBtn,
-#aboutBtn,
-#contactBtn,
-#randomFeaturesBtn,
-#toTheTopArrow {
-  font-size: 30px;
-  height: 65px;
-  aspect-ratio: 1/1;
-  display: grid;
-  place-content: center;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
+#bottomNav i{
+    color: var(--text);
+
 }
 
-#toTheTopArrow {
-  display: none;
-  position: fixed;
-  right: 1rem;
-  background-color: var(--primary);
+#bottomNav button, #toTheTopArrow{
+    font-size: 30px;
+    padding: 10px;
+    height: 65px;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+
+}
+
+#toTheTopArrow{
+    display: none;
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+    background-color: var(--primary);
+
 }
 
 @media (min-width: 800px) {
-  #bottomNav {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    left: 1rem;
-    top: 0;
-    height: 80%;
-    transform: translateX(-50%);
-    width: auto;
-    transform: none;
-    margin-right: 10px;
-    background: linear-gradient(
-      90deg,
-      var(--gradientNeutral) 0%,
-      var(--background) 100%
-    );
-  }
-}
+    #bottomNav{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        left: 1rem;
+        top: 0;
+        height: 80%;
+        transform: translateX(-50%);
+        width: auto;
+        transform: none;
+        margin-right: 10px;
+        background: linear-gradient(90deg, var(--background) 0%, var(--navColor) 100%);
+        /* background: var(--navColor); */
+
+    }
+    }
