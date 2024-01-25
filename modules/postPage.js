@@ -6,7 +6,7 @@ import { renderFeed } from "./feed.js";
 // Stoffe: Added this module
 import { countInputInElement } from "./inputlimit.js";
 
-let isClicked = false;
+let mute = false;
 
 let isPopupOpen = false;
 
@@ -37,13 +37,18 @@ export function postPage() {
 
 let isCreateNewPostOpen = false;
 
-
-const btn = document.querySelector('#muteBtn')
-btn.addEventListener('click', event => {
+const btn = document.querySelector("#muteBtn");
+btn.addEventListener("click", (event) => {
   event.preventDefault();
-  btn.className = "fa-regular fa-bell-slash";
-  isClicked = true;
-})
+
+  if (mute) {
+    mute = false;
+    btn.className = "fa-regular fa-bell";
+  } else {
+    btn.className = "fa-regular fa-bell-slash";
+    mute = true;
+  }
+});
 
 function createNewPost() {
   const newPostDiv = dom.create("section", "newPostDiv");
