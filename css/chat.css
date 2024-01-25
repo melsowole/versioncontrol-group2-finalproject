@@ -5,7 +5,7 @@
   font-size: 30px;
   font-weight: bold;
   width: auto;
-  margin: 0 0 1rem;
+  margin: 0 0 3rem;
   padding: 0 2rem;
 
   position: absolute;
@@ -15,16 +15,19 @@
 }
 
 .chat-h2{
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 .newPostBtn {
+  position: absolute;
+  top: 0.1rem;
   cursor: pointer;
-  height: fit-content;
+  /* height: fit-content; */
   background-color: transparent;
   border: 0;
   font-size: 2rem;
   color: var(--text);
+  margin-bottom: 2rem;
 }
 
 .newPostDiv {
@@ -156,11 +159,16 @@ input[type="radio"]:checked+label{
     top: 7rem;
     left: 0;
   }
+  .newPostBtn {
+    left: 26rem;
+    top: 0rem;
+    line-height: 80%;
+    font-size: 2.5rem;
+  }
  .chatHeading{
   justify-content: center;
   position: relative;
   top: 0rem;
   right: 0;
  }
-
 }

@@ -7,6 +7,9 @@ export const displayLanding = new Promise((resolve, reject) => {
     return resolve();
   }
 
+  const muteButton = document.querySelector('#muteBtn');
+  muteButton.style.display = 'none';
+
   sessionStorage.setItem("refresh", true);
 
   const landing = landingPage();
