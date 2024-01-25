@@ -2,6 +2,9 @@
 import { dom } from "./dom.js";
 
 export function contactPage() {
+  const muteButton = document.querySelector('#muteBtn');
+  muteButton.style.display = 'none';
+  
   const contactWrapper = dom.create("section");
 
   const contactH1El = dom.createAndAppend(

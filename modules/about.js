@@ -1,6 +1,9 @@
 import { dom } from "./dom.js";
 
 export function aboutPage() {
+  const muteButton = document.querySelector('#muteBtn');
+  muteButton.style.display = 'none';
+
   const aboutWrapper = dom.create("section", "aboutSection");
   const aboutH1El = dom.createAndAppend(aboutWrapper, "h2", "aboutH1", "About");
   const aboutDivEl = dom.createAndAppend(aboutWrapper, "div", "aboutDiv");

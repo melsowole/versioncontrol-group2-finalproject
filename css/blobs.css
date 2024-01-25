@@ -81,7 +81,7 @@
 }
 
 .about-page .blobOverlay{
-  top: 85px;
+  top: 90px;
   height: calc(100svh - 85px);
 }
 
