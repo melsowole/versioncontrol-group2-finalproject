@@ -138,6 +138,14 @@ function createNewPost() {
       timestamp: new Date(),
     };
 
+    if ((message == message.author) === "" || message.content === "") {
+      alert(
+        "Please complete all required fields in the form before submitting"
+      );
+      return false;
+    }
+    
+
     // Added a feature that triggers a audio when the user clicks on "Post."
     // The 'submitSound' event listener waits for the audio to complete before reloading the page.
     firebase.POST(message).then(() => {
