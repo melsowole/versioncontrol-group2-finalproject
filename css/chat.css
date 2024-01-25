@@ -105,9 +105,9 @@
 .moodIcon {
   position: relative;
 }
-.moodIcon.selected {
+
+input[type="radio"]:checked+label{
   background-color: var(--primary);
-  /* border-radius: 5px; */
   padding: 0.5rem;
 }
 

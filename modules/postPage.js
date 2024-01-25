@@ -55,7 +55,6 @@ function createNewPost() {
 
   isCreateNewPostOpen = true;
 
-
   const closeButton = dom.createAndAppend(
     newPostDiv,
     "button",
@@ -74,20 +73,22 @@ function createNewPost() {
   );
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
 
-
   const moodIcons = ["sad", "turbulent", "happy", "mad"];
-  const savedMood = localStorage.getItem("selectedMood") || "happy";
-  chooseMoodDiv.innerHTML = moodIcons
-    .map((mood) => {
-      const iconSvg = icons(mood);
-      const isChecked = mood === savedMood ? "checked" : "";
+  // const savedMood = localStorage.getItem("selectedMood") || "happy";
 
-      return `<div class="moodIcon">
-                <input type="radio" name="mood" value="${mood}" id="${mood}Radio">
-                <label for="${mood}Radio">${iconSvg}</label>
-              </div>`;
-    })
-    .join("");
+  let count = 0;
+
+  moodIcons.forEach((mood) => {
+    chooseMoodDiv.innerHTML += `
+    <div>
+      <input type="radio" name="mood" value="${mood}" id="${mood}-radio" ${
+      !count ? "checked" : ""
+    }>
+      <label for="${mood}-radio">${icons(mood)}</label>
+    </div>`;
+
+    count++;
+  });
 
   const moodIconsElements = newPostDiv.querySelectorAll(".moodIcon");
 
@@ -116,50 +117,41 @@ function createNewPost() {
   });
   // stoffe end
 
-  const happyIcon = moodIconsElements[2];
-  happyIcon.classList.add("selected");
-
-
   writePostText.placeholder = "Whatcha doing?...";
   const postBtn = dom.createAndAppend(newPostDiv, "button", "PostBtn", "Post");
-
 
   closeButton.addEventListener("click", () => {
     newPostDiv.remove();
     isCreateNewPostOpen = false;
     isPopupOpen = false;
-
   });
 
-
   postBtn.addEventListener("click", () => {
-    //Angelica added timestamp to database 
+    //Angelica added timestamp to database
     const message = {
       author: titleDiv.value,
-      content: fixText (writePostText.value),
+      content: fixText(writePostText.value),
       mood: document.querySelector("input[type=radio]:checked").value,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
     // Added a feature that triggers a audio when the user clicks on "Post."
     // The 'submitSound' event listener waits for the audio to complete before reloading the page.
     firebase.POST(message).then(() => {
-      const submitSound = new Audio('./audio/post-sound.mp3');
+      const submitSound = new Audio("./audio/post-sound.mp3");
 
-
-      if (isClicked) {
+      if (mute) {
         submitSound.muted = true;
       }
 
       submitSound.play();
 
-      submitSound.addEventListener('ended', () => {
+      submitSound.addEventListener("ended", () => {
         location.reload();
         isPopupOpen = false;
       });
     });
   });
-
 
   return newPostDiv;
 }
