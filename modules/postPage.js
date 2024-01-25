@@ -77,17 +77,16 @@ function createNewPost() {
   const chooseMoodDiv = dom.createAndAppend(newPostDiv, "div", "chooseMood");
 
   const moodIcons = ["sad", "turbulent", "happy", "mad"];
-  // const savedMood = localStorage.getItem("selectedMood") || "happy";
 
   let count = 0;
 
   moodIcons.forEach((mood) => {
     chooseMoodDiv.innerHTML += `
     <div>
-      <input type="radio" name="mood" value="${mood}" id="${mood}-radio" ${
+      <input type="radio" name="mood" value="${mood}" id="${mood}-radio" tabindex ${
       !count ? "checked" : ""
     }>
-      <label for="${mood}-radio">${icons(mood)}</label>
+      <label aria-label="${mood}" for="${mood}-radio">${icons(mood)}</label>
     </div>`;
 
     count++;
