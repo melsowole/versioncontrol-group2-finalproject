@@ -101,11 +101,6 @@
   
 }
 
-input[type="radio"]:focus+label{
-  border-bottom: 2px solid var(--text);
-  border-top: 2px solid var(--text);
-}
-
 .chooseMood label {
   cursor: pointer;
   margin: 0;
@@ -118,6 +113,10 @@ input[type="radio"]:focus+label{
 input[type="radio"]:checked+label{
   background-color: var(--primary);
   padding: 0.5rem;
+}
+
+input[type="radio"]:focus+label{
+  background-color: var(--primaryHi);
 }
 
 .moodIcon.selected::before {
