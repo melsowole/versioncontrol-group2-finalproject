@@ -4,6 +4,7 @@
   --text: black;
   --blobText: white;
   --primary: #cd9aff;
+  --primaryHi: #aa5df8;
   --gradient1: linear-gradient(40deg, #f1a5fd 2%, #F0009E 100%);
   --gradient2: linear-gradient(40deg, #ffde4b 20%, #ff2903 100%);
   --gradient3: linear-gradient(40deg, #8ff2ff 0%, #02ff13 100%);
@@ -52,6 +53,9 @@ html {
   top: 2rem;
   width: 1.3rem;
   height: 1.3rem;
+  background-color: transparent;
+  margin-right: 8px;
+  font-size: 15px;
   cursor: pointer;
   display: none;
 }
