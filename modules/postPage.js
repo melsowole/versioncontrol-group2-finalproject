@@ -12,6 +12,9 @@ let isPopupOpen = false;
 
 export function postPage() {
   const page = dom.create("section");
+  
+  const muteButton = document.querySelector('#muteBtn');
+  muteButton.style.display = 'block';
 
   dom.createAndAppend(page, "h2", "chat-h2", "Chat");
 
