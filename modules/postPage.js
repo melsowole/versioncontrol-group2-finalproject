@@ -12,9 +12,9 @@ let isPopupOpen = false;
 
 export function postPage() {
   const page = dom.create("section");
-  
-  const muteButton = document.querySelector('#muteBtn');
-  muteButton.style.display = 'block';
+
+  const muteButton = document.querySelector("#muteBtn");
+  muteButton.style.display = "block";
 
   dom.createAndAppend(page, "h2", "chat-h2", "Chat");
 
@@ -66,7 +66,7 @@ function createNewPost() {
   );
 
   const titleDiv = dom.createAndAppend(newPostDiv, "input", "newPostTitle");
-  titleDiv.placeholder = "Write your title here...";
+  titleDiv.placeholder = "Your name...";
 
   const text = dom.createAndAppend(
     newPostDiv,
@@ -143,7 +143,6 @@ function createNewPost() {
       );
       return false;
     }
-    
 
     // Added a feature that triggers a audio when the user clicks on "Post."
     // The 'submitSound' event listener waits for the audio to complete before reloading the page.
@@ -166,24 +165,20 @@ function createNewPost() {
   return newPostDiv;
 }
 
-
 function fixText(str) {
   if (str.endsWith("!") || str.endsWith("?") || str.endsWith(".")) {
-      return capitalizeFirstLetter(str);
+    return capitalizeFirstLetter(str);
   }
- 
-  return capitalizeFirstLetter(str) + '.';
- }
- 
- 
- function capitalizeFirstLetter(str) {
+
+  return capitalizeFirstLetter(str) + ".";
+}
+
+function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
- }
- 
+}
 
-function closeCreateNewPost () {
-
-  const newPostDiv = document.querySelector('.newPostDiv');
+function closeCreateNewPost() {
+  const newPostDiv = document.querySelector(".newPostDiv");
 
   if (newPostDiv) {
     newPostDiv.remove();
@@ -191,14 +186,12 @@ function closeCreateNewPost () {
   }
 }
 
-document.addEventListener('click', (event) => {
+document.addEventListener("click", (event) => {
   const target = event.target;
 
-  if (target.closest('i')) {
+  if (target.closest("i")) {
     if (isCreateNewPostOpen) {
       closeCreateNewPost();
     }
   }
 });
-
-
